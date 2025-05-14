@@ -1,0 +1,1324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante Version="4.0" xmlns:cfdi="http://www.sat.gob.mx/cfd/4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:cce20="http://www.sat.gob.mx/ComercioExterior20"  xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd http://www.sat.gob.mx/ComercioExterior20 http://www.sat.gob.mx/sitio_internet/cfd/ComercioExterior20/ComercioExterior20.xsd" Folio="2487" Fecha="2025-05-09T11:35:00" NoCertificado="00001000000705751063" Certificado="MIIGDjCCA/agAwIBAgIUMDAwMDEwMDAwMDA3MDU3NTEwNjMwDQYJKoZIhvcNAQELBQAwggGVMTUwMwYDVQQDDCxBQyBERUwgU0VSVklDSU8gREUgQURNSU5JU1RSQUNJT04gVFJJQlVUQVJJQTEuMCwGA1UECgwlU0VSVklDSU8gREUgQURNSU5JU1RSQUNJT04gVFJJQlVUQVJJQTEaMBgGA1UECwwRU0FULUlFUyBBdXRob3JpdHkxMjAwBgkqhkiG9w0BCQEWI3NlcnZpY2lvc2FsY29udHJpYnV5ZW50ZUBzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMQ0wCwYDVQQIDARDRE1YMRMwEQYDVQQHDApDVUFVSFRFTU9DMRUwEwYDVQQtEwxTQVQ5NzA3MDFOTjMxXDBaBgkqhkiG9w0BCQITTXJlc3BvbnNhYmxlOiBBRE1JTklTVFJBQ0lPTiBDRU5UUkFMIERFIFNFUlZJQ0lPUyBUUklCVVRBUklPUyBBTCBDT05UUklCVVlFTlRFMB4XDTI0MDMxMzE2NDMxNloXDTI4MDMxMzE2NDMxNlowgcsxJTAjBgNVBAMUHERJU0XRT1MgVFJFUyBQIFMgREUgUkwgREUgQ1YxJTAjBgNVBCkUHERJU0XRT1MgVFJFUyBQIFMgREUgUkwgREUgQ1YxJTAjBgNVBAoUHERJU0XRT1MgVFJFUyBQIFMgREUgUkwgREUgQ1YxJTAjBgNVBC0THERUUDA4MDgwNkJEOCAvIE1BQ0w4MTEyMzFBWDQxHjAcBgNVBAUTFSAvIE1BQ0w4MTEyMzFNREZSTEwwNTENMAsGA1UECxMEQ0ZESTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALaY8whYXg5CP36xcTtSU1YNas8YAafpwgy9/jgQttVDXGUSibCtj6CoAFP76eS+S1fa+uIZllGfq5ah+ufiCLaaTS/VLovAgGsRdbsAm2WjMBz1Yk9/qMjJM8lR2RFAFH4kJCJQclHYBohELlxmmyCJVECm+t0lXx1w6mSaLNpDkpsYjm0Hniole5jQPEJqv9M+XnkUhavlxceUiIjBLTenv7hwN3nBa16kQqNHBBpU5VsUM3ohcmrX1fXWNC4oVZD+OVJRi01o0m1lNUh7wm9WGb8809Hpr7fikiyGJYl5dTIx8JeHR3qGmWRD+ApAk/xnYXNLKUeFLZlpYB+d1MUCAwEAAaMdMBswDAYDVR0TAQH/BAIwADALBgNVHQ8EBAMCBsAwDQYJKoZIhvcNAQELBQADggIBACDBz6iPDUkh9iztgYLvplFCM7d0KW+KpJN8GkqmofzBB1j+WIEaeAjnGTCqCfcsWLALfSVsm0RlBqFYTMPG23KUXTaNhvliJvfEJfBH32SUZmrgmM90eJgNiPaqtluzWfx52zWyhy+7YGT9ebVZQOP170oWNdu+x8hXL1NM/GjOguvj5bltSNlWOBYUmjCMyoDj9s2kwlSTAA3u9DeQ7NfS31CHVhE/FEPjmUQiAU4jKao+wu1r9MskBN0+8yJbQ7PDpIXjcBKSh3otpEzz2/VeQEHNpFPazEMdYOqfp52BcZqNhgqHXaIt0tVAcpsVT87BokMhGO6OiU+sWED7ZfAVPADDRVo/W0KnhPrZPOf4iwv245/CJcYZNcBOFYqxD6Sut+7/kiWaBOCxHvu+eyGJApVlmhJvxhZf0NMO7PhaaATNCtsm/029bkH2I6DzBTR7RQ2Vu5ScMGlEfW4+Jb5eDQDFxGH05q+21fLH9ZcCrGYDIzk9uSB+7uiJrImCCuJNq7jABWhsmGRqNl2QdykKQGFCMVCibQ48WTGk6MRGYuKW+GXYIMBG4T4I5eeCXlE5gKbQF1HZMwivXvybf2aSDu4If9rUQsyUYgJQehCz2Hlb9UKQQZ+AWNSuH6GPQex8yjhFwBBdRB1rLkylxnS+V9jaVDKme/Em6W5PFoBA" Exportacion="02" Moneda="USD" TipoCambio="19.5880" TipoDeComprobante="I" MetodoPago="PPD" FormaPago="99" SubTotal="40650.50" Total="40650.50" LugarExpedicion="37759" Sello="B4yuYDEkdWyFJ0TAesnI/2XpC+cgaotymYjHcztcne7gktwRA8oL3dznBlB35VVjF7wygWooM6nt9RflQL/C2M3hlgSPJvCq2u6+55J8hJMNl9FxxojtVAE7//Ns1GTddc7QxhlBN8xqk6ZYM/VaCgnrNEtKfEmRUc7ZdFC+QtYfXaqIeKyPgq9+DdKauNjHG9QlbpIyEagZQ7+QGmGduHySRuTNH2NZvSC1uOK/Jjo8YpEXXA90A23fpP1s3kIjGYe3iPCSs5pOIUVpzWWejZstXDD78W928uXVO08ncsPVYEwn7lsWjrEK02vfsvd2+Sn7eejTk1fq7GMh9ZcQKw=="><cfdi:Emisor Rfc="DTP080806BD8" Nombre="DISEÑOS TRES P" RegimenFiscal="626"/>
+<cfdi:Receptor Rfc="XEXX010101000" Nombre="Stray Dog Designs"  ResidenciaFiscal="USA" NumRegIdTrib="204937639" UsoCFDI="S01" DomicilioFiscalReceptor="37759" RegimenFiscalReceptor="616"/>
+<cfdi:Conceptos>
+<cfdi:Concepto ClaveProdServ="56101545" NoIdentificacion="12037" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE FUNKY FAUX BOIS MIRROR - SKU:24fauxbois-sharbor" ValorUnitario="148.0000" Importe="296.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="296.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="56101545" NoIdentificacion="11906" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE GEORGE MIRROR - SKU:24george-gold" ValorUnitario="135.0000" Importe="135.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="135.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="56101545" NoIdentificacion="11830" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE KAT KAT MIRROR - SKU:24katkat-white" ValorUnitario="118.0000" Importe="118.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="118.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="56101545" NoIdentificacion="11989" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE RICHARD MIRROR - SKU:24richard-dpblue" ValorUnitario="195.0000" Importe="195.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="195.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111509" NoIdentificacion="12021" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE BLUM WOOD FLOOR LAMP - SKU:52blum-white" ValorUnitario="92.0000" Importe="92.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="92.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11736" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE CONEFLOWER CEILING LIGHT - SKU:13coneflower-epink" ValorUnitario="128.0000" Importe="128.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="128.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11998" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE FELIPE FLOWER PENDANT - SKU:13felipe-epink" ValorUnitario="56.0000" Importe="56.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="56.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11904" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE FELIPE FLOWER PENDANT - SKU:13felipe-white" ValorUnitario="56.0000" Importe="112.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="112.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11779-11883" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE GABBY PENDANT - SKU:13gabby-dfir" ValorUnitario="58.0000" Importe="116.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="116.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11753-11791" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE GABBY PENDANT - SKU:13gabby-sdpink" ValorUnitario="58.0000" Importe="116.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="116.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="12087" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE GABBY PENDANT - SKU:13gabby-sdpink" ValorUnitario="1.0000" Importe="1.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="1.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="12050" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE GABBY PENDANT - SKU:13gabby-white" ValorUnitario="58.0000" Importe="58.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="58.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11919-1" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE MARGARITA SMALL CHANDELIER - SKU:13margarita-antiguan" ValorUnitario="103.0000" Importe="103.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="103.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11970" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE MARGARITA SMALL CHANDELIER - SKU:13margarita-fmoss" ValorUnitario="96.0000" Importe="96.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="96.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="12009" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE MARGARITA SMALL CHANDELIER - SKU:13margarita-sdpink" ValorUnitario="123.0000" Importe="123.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="123.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11919" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN ALFREDO CEILING LIGHT - SKU:13alfredo-antiguan" ValorUnitario="112.0000" Importe="112.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="112.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11859-11941" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN DRUM PENDANT WHIT FLOWER - SKU:13pdrum-dpbstripe" ValorUnitario="85.0000" Importe="170.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="170.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11941" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN GRAY LANDRY STRIPE LITTLE PENDANT - SKU:13graylandry-sdpink" ValorUnitario="48.0000" Importe="48.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="48.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11960" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="TIN ISABELLE CEILING LIGHT - SKU:13isabelle-white" ValorUnitario="128.0000" Importe="128.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="128.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11964-12066" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN LALA PENDANT - SKU:13lala" ValorUnitario="135.0000" Importe="270.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="270.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11852-11947" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN LULA FLUSH MOUNT PENDANT - SKU:13lula-sdpink" ValorUnitario="95.0000" Importe="190.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="190.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="12053-12122" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN LULA FLUSH MOUNT PENDANT - SKU:13lula-white" ValorUnitario="95.0000" Importe="190.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="190.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="12113" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN PAULINA OTOMI PENDANT - SKU:13p-paulina" ValorUnitario="156.0000" Importe="156.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="156.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11646" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN SALLY PENDANT - SKU:13sally-dfir" ValorUnitario="118.0000" Importe="118.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="118.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11835" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN SALLY PENDANT - SKU:13sally-sdaqua" ValorUnitario="118.0000" Importe="118.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="118.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11907-12001-12065" Cantidad="8.0000" ClaveUnidad="H87" Descripcion="TIN TINA DUAL MOUNT CEILING LIGHT - SKU:13tina-epink" ValorUnitario="56.0000" Importe="448.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="448.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11834-11837-12133" Cantidad="3.0000" ClaveUnidad="H87" Descripcion="TIN TINA DUAL MOUNT CEILING LIGHT - SKU:13tina-red" ValorUnitario="56.0000" Importe="168.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="168.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11958" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN TOLE NACHO PENDANT - SKU:13nacho-white" ValorUnitario="88.0000" Importe="88.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="88.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11720-11745" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN UNCLE WALTER DRUM PENDANT - SKU:13pduw-dpbstripe" ValorUnitario="68.0000" Importe="136.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="136.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="56112109" NoIdentificacion="11641" Cantidad="14.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE TREE STUMP STOOL - SKU:12css-white" ValorUnitario="107.0000" Importe="1498.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="1498.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="56112109" NoIdentificacion="11641-1" Cantidad="50.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE UNCLE JACK STOOL - SKU:12unclejack-white" ValorUnitario="107.0000" Importe="5350.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="5350.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="56101519" NoIdentificacion="11987" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE TILDA TABLE - SKU:11tilda-white" ValorUnitario="75.0000" Importe="75.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="75.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="56101519" NoIdentificacion="12044-1" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE TOMMY SIDE TABLE - SKU:11tommy-white" ValorUnitario="85.0000" Importe="85.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="85.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="56101519" NoIdentificacion="11841-11956" Cantidad="3.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE TULIP TABLE - SKU:11tulip-sdpink" ValorUnitario="142.0000" Importe="426.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="426.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111510" NoIdentificacion="11871-11985" Cantidad="4.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="IRON MRS. ENGLISH TABLE LAMP - SKU:51mrsenglish-pblush" ValorUnitario="92.0000" Importe="368.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="368.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111510" NoIdentificacion="11865" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE ARTICHOKE LAMP - SKU:51artichoke-sdaqua" ValorUnitario="109.0000" Importe="218.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="218.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111510" NoIdentificacion="12079" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE ARTICHOKE LAMP - SKU:51artichoke-white" ValorUnitario="109.0000" Importe="218.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="218.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111510" NoIdentificacion="11680-11908" Cantidad="3.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE ARTICHOKE SMALL LAMP - SKU:51smallchoke-dpblue" ValorUnitario="127.0000" Importe="381.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="381.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111510" NoIdentificacion="11885-12080" Cantidad="6.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE CRUNCHBERRY LAMP - SKU:51crunchberry-dpblue" ValorUnitario="85.0000" Importe="510.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="510.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111510" NoIdentificacion="12025" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE JARMIN TABLE LAMP - SKU:51jarmin-white" ValorUnitario="61.0000" Importe="122.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="122.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111510" NoIdentificacion="11898-4" Cantidad="3.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE SARAH LAMP BASE - SKU:51sarah-white" ValorUnitario="64.0000" Importe="192.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="192.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111510" NoIdentificacion="11870" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE STEPHANIE WOOD TABLE LAMP - SKU:51steph-fmoss" ValorUnitario="56.0000" Importe="56.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="56.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111510" NoIdentificacion="11863-11943-11961-11980-12019" Cantidad="5.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE STRAWBERRY TABLE LAMP - SKU:51strawberry-epink" ValorUnitario="75.0000" Importe="375.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="375.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111510" NoIdentificacion="12035" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE STRAWBERRY TABLE LAMP - SKU:51strawberry-red" ValorUnitario="75.0000" Importe="75.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="75.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111510" NoIdentificacion="12030" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE TULIP TREE LAMP - SKU:51tulip-chartreuse" ValorUnitario="61.0000" Importe="61.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="61.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111510" NoIdentificacion="11935" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE TULIP TREE LAMP - SKU:51tulip-chartreuse" ValorUnitario="71.0000" Importe="142.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="142.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111510" NoIdentificacion="11954" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE VICTORIA ROBBINS TABLE LAMP - SKU:51victoria-dfir" ValorUnitario="68.0000" Importe="68.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="68.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111510" NoIdentificacion="11898-12056" Cantidad="3.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN DOUG BUFFET LAMP - SKU:51doug-antiguan" ValorUnitario="98.0000" Importe="294.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="294.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111812" NoIdentificacion="12104" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE OVAL SHADE - SKU:16po" ValorUnitario="16.0000" Importe="32.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="32.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111812" NoIdentificacion="12086" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE PAINTED PAPER SHADE - SKU:16pd19-painted" ValorUnitario="20.0000" Importe="40.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="40.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111812" NoIdentificacion="11997-12110-12202" Cantidad="4.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE SHADE 16 - SKU:16pd2-16" ValorUnitario="16.0000" Importe="64.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="64.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111812" NoIdentificacion="12044" Cantidad="2.0000" ClaveUnidad="H87" Descripcion="TIN DRUM SHADE 9.5X16 - SKU:16dr-black" ValorUnitario="45.0000" Importe="90.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="90.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111812" NoIdentificacion="11913" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN FLOUNCE CHANDELIER SHADE 4.5X6.5 - SKU:14f10" ValorUnitario="24.0000" Importe="48.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="48.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111812" NoIdentificacion="11864" Cantidad="6.0000" ClaveUnidad="H87" Descripcion="TIN PETAL CHANDELIER SHADE - SKU:14petal-dpb" ValorUnitario="22.0000" Importe="132.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="132.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111812" NoIdentificacion="11915" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN PETAL SHADE - SKU:16petal-epink" ValorUnitario="42.0000" Importe="42.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="42.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111812" NoIdentificacion="12045-1" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN PETAL SHADE - SKU:16petal-pblush" ValorUnitario="0.5000" Importe="1.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="1.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111812" NoIdentificacion="11891" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN PETAL SHADE - SKU:16petal-white" ValorUnitario="1.0000" Importe="1.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="1.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111812" NoIdentificacion="12042" Cantidad="3.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN PIPED CHANDELIER SHADE - SKU:14piped-white" ValorUnitario="26.0000" Importe="78.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="78.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111812" NoIdentificacion="11799-11900-12118" Cantidad="7.0000" ClaveUnidad="H87" Descripcion="TIN RIC RAC CHANDELIER SHADE - SKU:14ricrac-epink" ValorUnitario="25.0000" Importe="175.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="175.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11894" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="IRON ANNETTE LANTERN - SKU:13annette-white" ValorUnitario="150.0000" Importe="150.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="150.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11902" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="IRON COCO LANTERN - SKU:13coco-epink" ValorUnitario="220.0000" Importe="220.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="220.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="12032" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="IRON ELLA LANTER - SKU:13ella" ValorUnitario="175.0000" Importe="175.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="175.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="12119" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="IRON ELLA LANTER - SKU:13ella-sdpink" ValorUnitario="175.0000" Importe="175.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="175.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11886-12051" Cantidad="2.0000" ClaveUnidad="H87" Descripcion="IRON ELLA LANTER - SKU:13ella-white" ValorUnitario="175.0000" Importe="350.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="350.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11667" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="IRON LEONORA CHANDELIER - SKU:13leonora-chartreuse" ValorUnitario="195.0000" Importe="195.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="195.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11836" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="IRON LEONORA CHANDELIER - SKU:13leonora-dpblue" ValorUnitario="188.0000" Importe="188.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="188.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="12077" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="IRON LEONORA CHANDELIER - SKU:13leonora-fmoss" ValorUnitario="195.0000" Importe="195.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="195.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11661" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="IRON LEONORA CHANDELIER - SKU:13leonora-sdaqua" ValorUnitario="195.0000" Importe="195.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="195.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11898" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="IRON LEONORA CHANDELIER - SKU:13leonora-white" ValorUnitario="188.0000" Importe="188.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="188.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11770" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="IRON LEONORA CHANDELIER - SKU:13leonora-white" ValorUnitario="215.0000" Importe="215.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="215.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11949" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="IRON PETTICOAT PALM LEONORA CHANDELIER SW 6858" ValorUnitario="302.0000" Importe="302.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="302.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="12075" Cantidad="2.0000" ClaveUnidad="H87" Descripcion="IRON LOWIE FLUSH MOUNT - SKU:13lowie-lemongrass" ValorUnitario="185.0000" Importe="370.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="370.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="12000" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="IRON LOWIE FLUSH MOUNT - SKU:13lowie-dpblue" ValorUnitario="185.0000" Importe="185.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="185.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11917" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="IRON LOWIE FLUSH MOUNT - SKU:13lowie-bsblue" ValorUnitario="185.0000" Importe="185.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="185.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11886-11919" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="IRON SADIE LANTERN - SKU:13sadie" ValorUnitario="205.0000" Importe="410.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="410.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="12027-12038-12102" Cantidad="3.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="IRON VINCENT LANTERN - SKU:13vincent-antiguan" ValorUnitario="92.0000" Importe="276.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="276.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11901" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="IRON VINCENT LANTERN - SKU:13vincent-antiguan" ValorUnitario="139.0000" Importe="139.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="139.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11899" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE ADELAIDE PENDANT - SKU:13adelaide-dfir" ValorUnitario="138.0000" Importe="138.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="138.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11616" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE ADELAIDE PENDANT - SKU:13adelaide-sdpink" ValorUnitario="145.0000" Importe="145.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="145.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11988" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE ARLO CHANDELIER - SKU:13arlo-chartreuse" ValorUnitario="302.0000" Importe="302.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="302.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11959" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE ARLO CHANDELIER - SKU:13arlo-white" ValorUnitario="295.0000" Importe="295.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="295.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11977" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE BABY LAURA CHANDELIER - SKU:13babyl-antsky" ValorUnitario="145.0000" Importe="145.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="145.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="12014" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza" Descripcion="PAPER MACHE CELESTE SPHERE - SKU:13celeste-sharbor" ValorUnitario="198.0000" Importe="198.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="198.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="12021-1" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE CELESTE SPHERE - SKU:13celeste-white" ValorUnitario="198.0000" Importe="198.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="198.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11790" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE CHUCHO CHANDELIER - SKU:13chucho-antiguan" ValorUnitario="172.0000" Importe="172.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="172.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11890" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE CHUCHO CHANDELIER - SKU:13chucho-black" ValorUnitario="172.0000" Importe="172.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="172.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="GASPARILLA" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE CHUCHO CHANDELIER - SKU:13chucho-custom" ValorUnitario="800.0000" Importe="1600.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="1600.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11820" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE CHUCHO CHANDELIER - SKU:13chucho-epink" ValorUnitario="179.0000" Importe="179.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="179.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11911-11957" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE CHUCHO CHANDELIER - SKU:13chucho-white" ValorUnitario="172.0000" Importe="344.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="344.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11994" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE CORALINE CHANDELIER - SKU:13coralie-epink" ValorUnitario="112.0000" Importe="112.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="112.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="12003" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE CORALINE CHANDELIER - SKU:13coralie-epink" ValorUnitario="119.0000" Importe="119.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="119.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11721-11740-11829-12004-12024-12059-12060" Cantidad="7.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE DOGWOOD SURFACE MOUNT FIXTURE - SKU:13dogwood-white" ValorUnitario="108.0000" Importe="756.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="756.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11992" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE EDNA FLOUSH MOUNT CHANDELIER - SKU:13edna-sdpink" ValorUnitario="187.0000" Importe="187.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="187.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="12012" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE HENRY CHANDELIER- SKU:13henry-dpblue" ValorUnitario="192.0000" Importe="192.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="192.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11904-11963" Cantidad="3.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE HENRY CHANDELIER- SKU:13henry-white" ValorUnitario="185.0000" Importe="555.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="555.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11918" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE HENRY CHANDELIER- SKU:13henry-white" ValorUnitario="185.0000" Importe="185.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="185.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11914-11840-11956" Cantidad="3.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE JOHN O CHANDELIER - SKU:13johno-asky" ValorUnitario="185.0000" Importe="555.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="555.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11868" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE JOHN O CHANDELIER - SKU:13johno-white" ValorUnitario="205.0000" Importe="205.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="205.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11937" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE JOHN O CHANDELIER 29x27- SKU:13johno-white" ValorUnitario="260.0000" Importe="260.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="260.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11916-11920-11967-12053-12189" Cantidad="5.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE JOHN O CHANDELIER - SKU:13johno-white" ValorUnitario="185.0000" Importe="925.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="925.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11863-11996-11919-12171" Cantidad="5.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE JUANITO FLUSH MOUNT - SKU:13juanito-white" ValorUnitario="158.0000" Importe="790.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="790.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11905" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE LANDON CHANDELIER - SKU:13landon-white" ValorUnitario="155.0000" Importe="155.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="155.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11691" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE LOTUS CHANDELIER - SKU:13lotus-epink" ValorUnitario="262.0000" Importe="262.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="262.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11880" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE LOTUS CHANDELIER - SKU:13lotus-lgrass" ValorUnitario="255.0000" Importe="255.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="255.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11781-11808" Cantidad="2.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE LOTUS CHANDELIER - SKU:13lotus-white" ValorUnitario="255.0000" Importe="510.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="510.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11974-1" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE MELISSA CHANDELIER - SKU:13melissa-kgray" ValorUnitario="205.0000" Importe="205.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="205.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11942" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE MELISSA CHANDELIER - SKU:13melissa-white" ValorUnitario="198.0000" Importe="198.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="198.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11920" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE OLIVE CHANDELIER - SKU:13olive-fmoss" ValorUnitario="657.0000" Importe="657.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="657.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11969" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE TERELL SWANN CHANDELIER - SKU:13terrellswann-white" ValorUnitario="230.0000" Importe="230.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="230.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11999" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE TERELL SWANN CHANDELIER - SKU:13terrellswann-dpblue" ValorUnitario="230.0000" Importe="230.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="230.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11974" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE TWIGGY CHANDELIER - SKU:13twiggy-kgray" ValorUnitario="162.0000" Importe="162.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="162.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11578" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE VERY CHIHUAHUA CHANDELIER - SKU:13very-white" ValorUnitario="692.0000" Importe="692.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="692.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11659" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE VERY CHIHUAHUA CHANDELIER - SKU:13very-tmag" ValorUnitario="685.0000" Importe="685.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="685.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11920-1" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE WILLOW CHANDELIER - SKU:13weepingwillow-chartreuse" ValorUnitario="265.0000" Importe="265.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="265.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11855" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE WILLOW CHANDELIER - SKU:13weepingwillow-fmoss" ValorUnitario="265.0000" Importe="265.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="265.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11845" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE WILLOW CHANDELIER - SKU:13weepingwillow-white" ValorUnitario="285.0000" Importe="285.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="285.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="11976" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE BIRD - SKU:31bird-dfir" ValorUnitario="15.0000" Importe="15.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="15.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="12039-12169" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE BIRD - SKU:31bird-sdaqua" ValorUnitario="15.0000" Importe="30.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="30.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="11976-12173" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE BIRD - SKU:31bird-sdpink" ValorUnitario="15.0000" Importe="30.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="30.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="11956-1" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE CLAM SHELL - SKU:31clamshell-bsblue" ValorUnitario="16.0000" Importe="16.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="16.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="11956-2" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE CLAM SHELL - SKU:31clamshell-sdpink" ValorUnitario="16.0000" Importe="16.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="16.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="12000-12180" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE LOVE BIRD - SKU:31lovebird-chartreuse" ValorUnitario="15.0000" Importe="30.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="30.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="11909" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE LOVE BIRD - SKU:31lovebird-pblush" ValorUnitario="15.0000" Importe="15.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="15.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="12000-12140" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE LOVE BIRD - SKU:31lovebird-white" ValorUnitario="15.0000" Importe="30.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="30.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="12013" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE PLANTED CRUNCHBERRY - SKU:31p-crunchberry-sdaqua" ValorUnitario="58.0000" Importe="58.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="58.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="11898-1" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE PLANTED CRUNCHBERRY - SKU:31p-crunchberry-white" ValorUnitario="58.0000" Importe="116.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="116.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="12013-1" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE POTTED ORCHID - SKU:31p-orchid-sdpink" ValorUnitario="42.0000" Importe="42.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="42.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="11956-12029" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE POTTED ORCHID - SKU:31p-orchid-white" ValorUnitario="42.0000" Importe="84.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="84.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="11971" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE WALL TILE HIBISCUS - SKU:24wt-fhibiscus-white" ValorUnitario="35.0000" Importe="35.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="35.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="11971-12162" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE WALL TILE LILY - SKU:24wt-flily-white" ValorUnitario="35.0000" Importe="70.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="70.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="11971-2" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE WALL TILE LOTUS FLOWER - SKU:24wt-flotus-white" ValorUnitario="35.0000" Importe="35.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="35.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="30102003" NoIdentificacion="11997" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="TIN HEXAGONAL WASTEBASKET - SKU:31hexagonalwb-epink" ValorUnitario="39.0000" Importe="39.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="39.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="30102003" NoIdentificacion="11690" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN BIRDIE FINIAL - SKU:21b-01" ValorUnitario="7.5000" Importe="7.5000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="7.5000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="30102003" NoIdentificacion="11690-1" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN BIRDIE FINIAL - SKU:21b-04" ValorUnitario="7.5000" Importe="7.5000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="7.5000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="30102003" NoIdentificacion="11690-2" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN BIRDIE FINIAL - SKU:21b-05" ValorUnitario="7.5000" Importe="7.5000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="7.5000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="30102003" NoIdentificacion="12045-claim" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN BIRDIE FINIAL - SKU:21b-08" ValorUnitario="0.5000" Importe="1.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="1.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="30102003" NoIdentificacion="USD1" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="TIN FLOUNCY CANOPY KIT - SKU:23flounce-white" ValorUnitario="24.0000" Importe="24.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="24.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="30102003" NoIdentificacion="11919-2" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="TIN PETALED CANOPY KIT - GOLD - SKU:23petal-gold" ValorUnitario="18.0000" Importe="18.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="18.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="30102003" NoIdentificacion="12159" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="TIN DAHLIA CANOPY KIT - SKU:23dahlia-chartreuse" ValorUnitario="24.0000" Importe="24.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="24.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="56141600" NoIdentificacion="11927-12086" Cantidad="12.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="GLASS BALL FINIAL - SKU:21gb-02" ValorUnitario="6.0000" Importe="72.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="72.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="56141600" NoIdentificacion="11948" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="GLASS BALL FINIAL - SKU:21gb-12" ValorUnitario="7.0000" Importe="7.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="7.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="blooming" Cantidad="54.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE BASES" ValorUnitario="18.5000" Importe="999.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="999.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="USD2" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE SPECIAL BASES" ValorUnitario="472.0000" Importe="472.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="472.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="11898-2" Cantidad="4.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE BIRD FINIAL-SITTING - SKU:21pm-bird-white" ValorUnitario="6.5000" Importe="26.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="26.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="12058-12129-12157-12172" Cantidad="6.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE BIRD FINIAL-STANDING - SKU:21pmbird-2-dpblue" ValorUnitario="6.5000" Importe="39.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="39.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="12173" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE BIRD FINIAL-STANDING - SKU:21pmbird-2-lemon" ValorUnitario="6.5000" Importe="13.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="13.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="11745-12157-12172" Cantidad="3.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE BIRD FINIAL-STANDING - SKU:21pmbird-2-sdpink" ValorUnitario="6.5000" Importe="19.5000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="19.5000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="11927-11898" Cantidad="12.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE BIRD FINIAL-STANDING - SKU:21pmbird-2-white" ValorUnitario="6.5000" Importe="78.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="78.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="12157" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE FUNKY BERRY FINIAL - SKU:21funkyfinial-gold" ValorUnitario="9.0000" Importe="9.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="9.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11647" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE BLOMING ETEGERE - SKU:11blooming-white" ValorUnitario="310.0000" Importe="620.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="620.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11806" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE DOLLY SCONCE - SKU:17dolly-tmag" ValorUnitario="75.0000" Importe="75.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="75.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11876" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE DOLLY SCONCE - SKU:17dolly-white" ValorUnitario="75.0000" Importe="75.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="75.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11900" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE EFRAIN SCONCE - SKU:17efrain-magenta" ValorUnitario="75.0000" Importe="150.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="150.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="12074" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE EFRAIN SCONCE - SKU:17efrain-magenta" ValorUnitario="65.0000" Importe="65.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="65.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11892" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE HARPER SCONCE - SKU:17harper-chartreuse" ValorUnitario="45.0000" Importe="90.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="90.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11978-12034-12107" Cantidad="7.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE HARPER SCONCE - SKU:17harper-white" ValorUnitario="45.0000" Importe="315.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="315.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="12083-2" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE HELEN SCONCE - SKU:17helen-white" ValorUnitario="62.0000" Importe="62.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="62.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="12026" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE JAMES SCONCE - SKU:17james-antiguan" ValorUnitario="58.0000" Importe="58.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="58.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11832-1" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE JEN SCONCE - SKU:17jen-dfir" ValorUnitario="56.0000" Importe="112.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="112.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11781-11887-11951-11989" Cantidad="8.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE JEN SCONCE - SKU:17jen-dfir" ValorUnitario="46.0000" Importe="368.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="368.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11973-12011-12090" Cantidad="6.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE JEN SCONCE - SKU:17jen-dpblue" ValorUnitario="46.0000" Importe="276.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="276.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="12007-12109" Cantidad="4.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE JEN SCONCE - SKU:17jen-sdpink" ValorUnitario="46.0000" Importe="184.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="184.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="12083-1" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE JEN SCONCE - SKU:17jen-white" ValorUnitario="46.0000" Importe="92.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="92.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11845-1" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE JEN SCONCE - SKU:17jen-white" ValorUnitario="56.0000" Importe="112.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="112.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11711-1" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE MILLIE SCONCE - SKU:17millie-white" ValorUnitario="88.0000" Importe="88.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="88.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11832" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE NINI SCONCE - SKU:17nini-antsky" ValorUnitario="56.0000" Importe="112.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="112.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11752" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE NINI SCONCE - SKU:17nini-kgray" ValorUnitario="46.0000" Importe="46.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="46.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11818" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE POLLY SCONCE - SKU:17polly-chartreuse" ValorUnitario="55.0000" Importe="110.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="110.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11799" Cantidad="2.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE POLLY SCONCE - SKU:17polly-dfir" ValorUnitario="55.0000" Importe="110.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="110.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11825-1" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="TIN TINA DUAL MOUNT WALL SCONCE - SKU:17tina-chartreuse" ValorUnitario="95.0000" Importe="95.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="95.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11926-12092-12098" Cantidad="4.0000" ClaveUnidad="H87" Descripcion="TIN LUCY SCONCE - SKU:17lucy-dpb" ValorUnitario="58.0000" Importe="232.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="232.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="12016" Cantidad="2.0000" ClaveUnidad="H87" Descripcion="TIN LUCY SCONCE - SKU:17lucy-antsky" ValorUnitario="58.0000" Importe="116.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="116.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11711" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="TIN LUCY SCONCE - SKU:17lucy-white" ValorUnitario="78.0000" Importe="78.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="78.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="12041" Cantidad="4.0000" ClaveUnidad="H87" Descripcion="TIN LUCY SCONCE - SKU:17lucy-white" ValorUnitario="63.0000" Importe="252.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="252.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11825" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="TIN LUCY SCONCE - SKU:17lucy-white" ValorUnitario="98.0000" Importe="98.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="98.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111503" NoIdentificacion="11872" Cantidad="2.0000" ClaveUnidad="H87" Descripcion="TIN LUCY SCONCE - SKU:17lucy-pblush" ValorUnitario="58.0000" Importe="116.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="116.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111509" NoIdentificacion="11990" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE MARIANA FLOOR LAMP - SKU:52mariana-chartreuse" ValorUnitario="1.0000" Importe="1.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="1.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="56101519" NoIdentificacion="12083" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE TULIP TABLE - SKU:11tulip-chartreuse" ValorUnitario="142.0000" Importe="284.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="284.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="12157-12172" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE BIRD FINIAL-STANDING - SKU:21pmbird-2-dfir" ValorUnitario="6.5000" Importe="13.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="13.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="12172-12157" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE BIRD FINIAL-STANDING - SKU:21pmbird-2-pumpkin" ValorUnitario="6.5000" Importe="13.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="13.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="12157-2" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE CLAM SHELL GOLD LEAF - SKU:31clamshell-g" ValorUnitario="16.0000" Importe="16.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="16.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="60122500" NoIdentificacion="12172" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE BIRD FINIAL-STANDING - SKU:21pmbird-2-kgray" ValorUnitario="6.5000" Importe="6.5000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="6.5000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111510" NoIdentificacion="12061" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN DOUG BUFFET LAMP - SKU:51doug-antiguan" ValorUnitario="108.0000" Importe="216.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="216.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111510" NoIdentificacion="12171" Cantidad="1.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="TIN ADDIE LAMP - SKU:51addie" ValorUnitario="105.0000" Importe="105.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="105.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111522" NoIdentificacion="11869" Cantidad="1.0000" ClaveUnidad="H87" Descripcion="PAPER MACHE BABY LAURA CHANDELIER - SKU:13babyl-white" ValorUnitario="172.0000" Importe="172.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="172.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto><cfdi:Concepto ClaveProdServ="39111812" NoIdentificacion="12202" Cantidad="2.0000" ClaveUnidad="H87" Unidad="Pza." Descripcion="PAPER MACHE SHADE 14 - SKU:16pd1-14" ValorUnitario="16.0000" Importe="32.0000" ObjetoImp="02">
+<cfdi:Impuestos>
+<cfdi:Traslados>
+<cfdi:Traslado Base="32.0000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.0000"/>
+</cfdi:Traslados>
+</cfdi:Impuestos>
+</cfdi:Concepto></cfdi:Conceptos><cfdi:Impuestos TotalImpuestosTrasladados="0.00">
+<cfdi:Traslados>
+<cfdi:Traslado Base="40650.50" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000"  Importe="0.00"/>
+</cfdi:Traslados>
+</cfdi:Impuestos><cfdi:Complemento>
+<cce20:ComercioExterior Version="2.0" ClaveDePedimento="A1" CertificadoOrigen="0" Incoterm="EXW" TipoCambioUSD="19.5880" TotalUSD="40650.50">
+<cce20:Emisor>
+<cce20:Domicilio Calle="PROVIDENCIA" NumeroExterior="15" Colonia="1940" Localidad="02" Municipio="003" Estado="GUA" Pais="MEX" CodigoPostal="37759"/>
+</cce20:Emisor>
+<cce20:Receptor>
+<cce20:Domicilio Calle="MILITARY ROAD" NumeroExterior="2815" Municipio="CHATTANOOGA" Estado="TN" Pais="USA" CodigoPostal="37409"/>
+</cce20:Receptor>
+<cce20:Mercancias>
+<cce20:Mercancia NoIdentificacion="12037" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="148.000000" ValorDolares="296.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11906" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="135.000000" ValorDolares="135.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11830" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="118.000000" ValorDolares="118.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11989" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="195.000000" ValorDolares="195.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12021" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="92.000000" ValorDolares="92.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11736" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="128.000000" ValorDolares="128.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11998" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="56.000000" ValorDolares="56.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11904" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="56.000000" ValorDolares="112.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11779-11883" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="58.000000" ValorDolares="116.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11753-11791" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="58.000000" ValorDolares="116.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12087" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="1.000000" ValorDolares="1.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12050" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="58.000000" ValorDolares="58.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11919-1" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="103.000000" ValorDolares="103.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11970" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="96.000000" ValorDolares="96.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12009" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="123.000000" ValorDolares="123.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11919" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="112.000000" ValorDolares="112.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11859-11941" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="2.000" ValorUnitarioAduana="85.000000" ValorDolares="170.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11941" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="48.000000" ValorDolares="48.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11960" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="128.000000" ValorDolares="128.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11964-12066" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="2.000" ValorUnitarioAduana="135.000000" ValorDolares="270.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11852-11947" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="2.000" ValorUnitarioAduana="95.000000" ValorDolares="190.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12053-12122" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="2.000" ValorUnitarioAduana="95.000000" ValorDolares="190.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12113" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="156.000000" ValorDolares="156.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11646" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="118.000000" ValorDolares="118.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11835" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="118.000000" ValorDolares="118.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11907-12001-12065" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="8.000" ValorUnitarioAduana="56.000000" ValorDolares="448.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11834-11837-12133" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="3.000" ValorUnitarioAduana="56.000000" ValorDolares="168.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11958" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="88.000000" ValorDolares="88.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11720-11745" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="2.000" ValorUnitarioAduana="68.000000" ValorDolares="136.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11641" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="14.000" ValorUnitarioAduana="107.000000" ValorDolares="1498.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11641-1" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="50.000" ValorUnitarioAduana="107.000000" ValorDolares="5350.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11987" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="75.000000" ValorDolares="75.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12044-1" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="85.000000" ValorDolares="85.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11841-11956" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="3.000" ValorUnitarioAduana="142.000000" ValorDolares="426.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11871-11985" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="4.000" ValorUnitarioAduana="92.000000" ValorDolares="368.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11865" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="109.000000" ValorDolares="218.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12079" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="109.000000" ValorDolares="218.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11680-11908" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="3.000" ValorUnitarioAduana="127.000000" ValorDolares="381.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11885-12080" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="6.000" ValorUnitarioAduana="85.000000" ValorDolares="510.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12025" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="61.000000" ValorDolares="122.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11898-4" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="3.000" ValorUnitarioAduana="64.000000" ValorDolares="192.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11870" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="56.000000" ValorDolares="56.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11863-11943-11961-11980-12019" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="5.000" ValorUnitarioAduana="75.000000" ValorDolares="375.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12035" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="75.000000" ValorDolares="75.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12030" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="61.000000" ValorDolares="61.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11935" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="71.000000" ValorDolares="142.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11954" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="68.000000" ValorDolares="68.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11898-12056" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="3.000" ValorUnitarioAduana="98.000000" ValorDolares="294.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12104" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="16.000000" ValorDolares="32.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12086" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="20.000000" ValorDolares="40.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11997-12110-12202" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="4.000" ValorUnitarioAduana="16.000000" ValorDolares="64.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12044" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="2.000" ValorUnitarioAduana="45.000000" ValorDolares="90.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11913" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="2.000" ValorUnitarioAduana="24.000000" ValorDolares="48.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11864" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="6.000" ValorUnitarioAduana="22.000000" ValorDolares="132.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11915" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="42.000000" ValorDolares="42.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12045-1" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="2.000" ValorUnitarioAduana="0.500000" ValorDolares="1.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11891" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="1.000000" ValorDolares="1.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12042" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="3.000" ValorUnitarioAduana="26.000000" ValorDolares="78.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11799-11900-12118" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="7.000" ValorUnitarioAduana="25.000000" ValorDolares="175.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11894" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="150.000000" ValorDolares="150.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11902" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="220.000000" ValorDolares="220.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12032" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="175.000000" ValorDolares="175.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12119" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="175.000000" ValorDolares="175.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11886-12051" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="2.000" ValorUnitarioAduana="175.000000" ValorDolares="350.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11667" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="195.000000" ValorDolares="195.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11836" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="188.000000" ValorDolares="188.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12077" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="195.000000" ValorDolares="195.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11661" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="195.000000" ValorDolares="195.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11898" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="188.000000" ValorDolares="188.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11770" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="215.000000" ValorDolares="215.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11949" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="302.000000" ValorDolares="302.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12075" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="2.000" ValorUnitarioAduana="185.000000" ValorDolares="370.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12000" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="185.000000" ValorDolares="185.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11917" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="185.000000" ValorDolares="185.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11886-11919" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="2.000" ValorUnitarioAduana="205.000000" ValorDolares="410.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12027-12038-12102" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="3.000" ValorUnitarioAduana="92.000000" ValorDolares="276.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11901" FraccionArancelaria="9401799901" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="139.000000" ValorDolares="139.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11899" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="138.000000" ValorDolares="138.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11616" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="145.000000" ValorDolares="145.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11988" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="302.000000" ValorDolares="302.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11959" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="295.000000" ValorDolares="295.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11977" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="145.000000" ValorDolares="145.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12014" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="198.000000" ValorDolares="198.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12021-1" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="198.000000" ValorDolares="198.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11790" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="172.000000" ValorDolares="172.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11890" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="172.000000" ValorDolares="172.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="GASPARILLA" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="800.000000" ValorDolares="1600.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11820" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="179.000000" ValorDolares="179.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11911-11957" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="172.000000" ValorDolares="344.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11994" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="112.000000" ValorDolares="112.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12003" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="119.000000" ValorDolares="119.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11721-11740-11829-12004-12024-12059-12060" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="7.000" ValorUnitarioAduana="108.000000" ValorDolares="756.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11992" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="187.000000" ValorDolares="187.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12012" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="192.000000" ValorDolares="192.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11904-11963" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="3.000" ValorUnitarioAduana="185.000000" ValorDolares="555.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11918" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="185.000000" ValorDolares="185.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11914-11840-11956" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="3.000" ValorUnitarioAduana="185.000000" ValorDolares="555.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11868" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="205.000000" ValorDolares="205.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11937" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="260.000000" ValorDolares="260.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11916-11920-11967-12053-12189" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="5.000" ValorUnitarioAduana="185.000000" ValorDolares="925.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11863-11996-11919-12171" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="5.000" ValorUnitarioAduana="158.000000" ValorDolares="790.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11905" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="155.000000" ValorDolares="155.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11691" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="262.000000" ValorDolares="262.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11880" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="255.000000" ValorDolares="255.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11781-11808" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="255.000000" ValorDolares="510.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11974-1" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="205.000000" ValorDolares="205.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11942" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="198.000000" ValorDolares="198.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11920" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="657.000000" ValorDolares="657.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11969" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="230.000000" ValorDolares="230.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11999" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="230.000000" ValorDolares="230.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11974" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="162.000000" ValorDolares="162.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11578" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="692.000000" ValorDolares="692.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11659" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="685.000000" ValorDolares="685.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11920-1" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="265.000000" ValorDolares="265.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11855" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="265.000000" ValorDolares="265.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11845" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="285.000000" ValorDolares="285.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11976" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="15.000000" ValorDolares="15.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12039-12169" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="15.000000" ValorDolares="30.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11976-12173" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="15.000000" ValorDolares="30.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11956-1" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="16.000000" ValorDolares="16.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11956-2" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="16.000000" ValorDolares="16.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12000-12180" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="15.000000" ValorDolares="30.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11909" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="15.000000" ValorDolares="15.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12000-12140" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="15.000000" ValorDolares="30.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12013" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="58.000000" ValorDolares="58.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11898-1" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="58.000000" ValorDolares="116.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12013-1" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="42.000000" ValorDolares="42.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11956-12029" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="42.000000" ValorDolares="84.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11971" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="35.000000" ValorDolares="35.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11971-12162" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="35.000000" ValorDolares="70.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11971-2" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="35.000000" ValorDolares="35.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11997" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="39.000000" ValorDolares="39.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11690" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="7.500000" ValorDolares="7.5000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11690-1" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="7.500000" ValorDolares="7.5000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11690-2" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="7.500000" ValorDolares="7.5000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12045-claim" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="2.000" ValorUnitarioAduana="0.500000" ValorDolares="1.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="USD1" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="24.000000" ValorDolares="24.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11919-2" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="18.000000" ValorDolares="18.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12159" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="24.000000" ValorDolares="24.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11927-12086" FraccionArancelaria="7013999904" UnidadAduana="01" CantidadAduana="12.000" ValorUnitarioAduana="6.000000" ValorDolares="72.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11948" FraccionArancelaria="7013999904" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="7.000000" ValorDolares="7.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="blooming" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="54.000" ValorUnitarioAduana="18.500000" ValorDolares="999.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="USD2" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="472.000000" ValorDolares="472.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11898-2" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="4.000" ValorUnitarioAduana="6.500000" ValorDolares="26.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12058-12129-12157-12172" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="6.000" ValorUnitarioAduana="6.500000" ValorDolares="39.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12173" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="6.500000" ValorDolares="13.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11745-12157-12172" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="3.000" ValorUnitarioAduana="6.500000" ValorDolares="19.5000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11927-11898" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="12.000" ValorUnitarioAduana="6.500000" ValorDolares="78.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12157" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="9.000000" ValorDolares="9.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11647" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="310.000000" ValorDolares="620.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11806" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="75.000000" ValorDolares="75.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11876" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="75.000000" ValorDolares="75.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11900" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="75.000000" ValorDolares="150.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12074" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="65.000000" ValorDolares="65.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11892" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="45.000000" ValorDolares="90.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11978-12034-12107" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="7.000" ValorUnitarioAduana="45.000000" ValorDolares="315.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12083-2" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="62.000000" ValorDolares="62.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12026" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="58.000000" ValorDolares="58.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11832-1" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="56.000000" ValorDolares="112.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11781-11887-11951-11989" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="8.000" ValorUnitarioAduana="46.000000" ValorDolares="368.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11973-12011-12090" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="6.000" ValorUnitarioAduana="46.000000" ValorDolares="276.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12007-12109" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="4.000" ValorUnitarioAduana="46.000000" ValorDolares="184.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12083-1" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="46.000000" ValorDolares="92.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11845-1" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="56.000000" ValorDolares="112.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11711-1" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="88.000000" ValorDolares="88.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11832" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="56.000000" ValorDolares="112.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11752" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="46.000000" ValorDolares="46.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11818" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="55.000000" ValorDolares="110.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11799" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="55.000000" ValorDolares="110.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11825-1" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="95.000000" ValorDolares="95.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11926-12092-12098" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="4.000" ValorUnitarioAduana="58.000000" ValorDolares="232.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12016" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="2.000" ValorUnitarioAduana="58.000000" ValorDolares="116.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11711" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="78.000000" ValorDolares="78.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12041" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="4.000" ValorUnitarioAduana="63.000000" ValorDolares="252.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11825" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="98.000000" ValorDolares="98.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11872" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="2.000" ValorUnitarioAduana="58.000000" ValorDolares="116.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11990" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="1.000000" ValorDolares="1.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12083" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="142.000000" ValorDolares="284.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12157-12172" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="6.500000" ValorDolares="13.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12172-12157" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="6.500000" ValorDolares="13.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12157-2" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="16.000000" ValorDolares="16.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12172" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="6.500000" ValorDolares="6.5000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12061" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="2.000" ValorUnitarioAduana="108.000000" ValorDolares="216.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12171" FraccionArancelaria="8306299900" UnidadAduana="06" CantidadAduana="1.000" ValorUnitarioAduana="105.000000" ValorDolares="105.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="11869" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="1.000" ValorUnitarioAduana="172.000000" ValorDolares="172.0000">
+</cce20:Mercancia><cce20:Mercancia NoIdentificacion="12202" FraccionArancelaria="4823909999" UnidadAduana="01" CantidadAduana="2.000" ValorUnitarioAduana="16.000000" ValorDolares="32.0000">
+</cce20:Mercancia></cce20:Mercancias>
+</cce20:ComercioExterior>
+	<tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/cfd/TimbreFiscalDigital/TimbreFiscalDigitalv11.xsd" Version="1.1" UUID="F3390887-2CFB-11F0-B753-00155D012007" FechaTimbrado="2025-05-09T11:35:07" RfcProvCertif="TBN040609RKA" SelloCFD="B4yuYDEkdWyFJ0TAesnI/2XpC+cgaotymYjHcztcne7gktwRA8oL3dznBlB35VVjF7wygWooM6nt9RflQL/C2M3hlgSPJvCq2u6+55J8hJMNl9FxxojtVAE7//Ns1GTddc7QxhlBN8xqk6ZYM/VaCgnrNEtKfEmRUc7ZdFC+QtYfXaqIeKyPgq9+DdKauNjHG9QlbpIyEagZQ7+QGmGduHySRuTNH2NZvSC1uOK/Jjo8YpEXXA90A23fpP1s3kIjGYe3iPCSs5pOIUVpzWWejZstXDD78W928uXVO08ncsPVYEwn7lsWjrEK02vfsvd2+Sn7eejTk1fq7GMh9ZcQKw==" NoCertificadoSAT="00001000000708361114" SelloSAT="CLJG1EA1puK2HarIkVmV5Go4Vf5ycMW8m8TiOislPBy3t6Mpe5iEFiqONY0b2Tz3zmxd2PaNT8c31oVufWorpB7N3SZJl+KPtgpTRP9UFPjrgGakVxHEK0aOeGquMRthVHCWK4C0ri2xM2AqYngAW7m5QqGOO7v4fAaQHtY3ZgvTYWhnZIbz41W3EOBJPxsX0x+ubA8rJvB7yYpv74j36TadxVK3UOC+dXkKPhnviMj2uWXF6eZEBZxc3QzUK8v4Y0AMIL1aiR99fgoeJX/G/P3rdJVeh4crD1nivwJErfwB0QOkG+U8fMD8daFvTtlT8ExV13vIWyuNEAt9ojEHkg=="/>
+	</cfdi:Complemento>
+</cfdi:Comprobante>
