@@ -154,10 +154,7 @@ def get_valid_access_token():
 def initial_auth_flow():
     """Handle the initial authorization flow"""
     # Define the scopes needed for your application
-    scopes = [
-        Scopes.ACCOUNTING,
-        # Add any other scopes your application needs
-    ]
+    scopes = [Scopes.ACCOUNTING]
 
     # Generate the authorization URL
     auth_url = auth_client.get_authorization_url(scopes)
@@ -165,18 +162,42 @@ def initial_auth_flow():
     # Display instructions and URL in Streamlit
     st.title("QuickBooks API Authorization")
     st.write("You need to authorize this application to access your QuickBooks data.")
-    st.write("Click the link below and follow the instructions:")
+    st.write("Click the link below and follow these steps:")
+    st.write("1. Log in with your QuickBooks company credentials")
+    st.write("2. Authorize the application")
+    st.write(
+        "3. When redirected to the OAuth Playground, copy the ENTIRE URL from your browser's address bar"
+    )
+    st.write("4. Paste it below and click 'Complete Authorization'")
+
     st.markdown(f"[Authorize with QuickBooks]({auth_url})")
 
-    st.write(
-        "After authorization, you will be redirected back with a URL containing a code."
-    )
-    st.write("Copy the entire URL and paste it below:")
+    st.write("---")
+    st.write("After authorization, paste the FULL URL you were redirected to:")
 
     redirect_url = st.text_input("Redirect URL:")
 
     if st.button("Complete Authorization") and redirect_url:
         try:
+            # Print debug info
+            st.write(f"URL length: {len(redirect_url)}")
+            with st.expander("Debug URL Info"):
+                start = (
+                    redirect_url[:60] + "..."
+                    if len(redirect_url) > 60
+                    else redirect_url
+                )
+                end = "..." + redirect_url[-60:] if len(redirect_url) > 60 else ""
+                st.write(f"URL starts with: {start}")
+                st.write(f"URL ends with: {end}")
+
+            # Check for 'code' parameter
+            if "code=" not in redirect_url:
+                st.error(
+                    "The URL does not contain an authorization code. Make sure you're copying the entire URL."
+                )
+                return
+
             # Extract the authorization code from the redirect URL
             auth_client.get_bearer_token(redirect_url)
 
@@ -192,6 +213,9 @@ def initial_auth_flow():
             st.experimental_rerun()
         except Exception as e:
             st.error(f"Authorization failed: {str(e)}")
+            st.write(
+                "Please try the authorization process again with a fresh authorization code."
+            )
 
 
 def make_api_request(endpoint, method="GET", data=None):
