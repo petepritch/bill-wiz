@@ -38,158 +38,95 @@ def format_bill_data(invoice_number, bill_df):
     st.write("First few rows:")
     st.write(bill_df.head())
 
-    # CRITICAL FIX: Check for column name variations
-    amount_column = None
-    amount_column_candidates = [
-        "Importe",
-        "importe",
-        "Amount",
-        "amount",
-        "Total",
-        "total",
-        "Valor",
-        "valor",
-    ]
-
-    for col in amount_column_candidates:
-        if col in bill_df.columns:
-            amount_column = col
-            st.write(f"Found amount column: '{amount_column}'")
-            break
-
-    if not amount_column:
-        st.error("Could not find amount column! Using direct values from bill data.")
-
-    # Display the first few values of the amount column for debugging
-    if amount_column:
-        st.write(f"First 5 values in {amount_column} column:")
-        for i, val in enumerate(bill_df[amount_column].head()):
-            st.write(f"Row {i}: {val} (type: {type(val).__name__})")
-
     # Process each row
     for _, row in bill_df.iterrows():
-        # Extract SKU from the description if possible (same as your original code)
-        description = row.get("Descripcion", "")
-        sku = ""
+        # CRITICAL: Extract SKU information for QuickBooks matching
+        full_sku = row.get("sku", "")
+        parent_sku = row.get("parent_sku", "")
+        product_id = row.get("product_id", "")
 
-        # Check if there's a NoIdentificacion field
-        if "NoIdentificacion" in row and row["NoIdentificacion"]:
-            sku = row["NoIdentificacion"]
-        # Check for "SKU:" pattern
-        elif "SKU:" in description:
-            sku = description.split("SKU:")[1].split()[0].strip()
-        elif "Codigo:" in description or "Código:" in description:
-            sku_part = (
-                description.split("Codigo:")[1]
-                if "Codigo:" in description
-                else description.split("Código:")[1]
-            )
-            sku = sku_part.split()[0].strip()
-        elif "[" in description and "]" in description:
-            start = description.find("[") + 1
-            end = description.find("]", start)
-            if end > start:
-                sku = description[start:end].strip()
-        elif "(" in description and ")" in description:
-            start = description.find("(") + 1
-            end = description.find(")", start)
-            if end > start:
-                potential_sku = description[start:end].strip()
-                if any(c.isdigit() for c in potential_sku) or len(potential_sku) < 10:
-                    sku = potential_sku
+        # For QuickBooks matching, we need the product in format: "parent_sku:full_sku"
+        qb_product = ""
 
-        # CRITICAL FIX: Get the amount value, with explicit debugging
+        # If both parent and full SKU are available, format as parent:full
+        if parent_sku and full_sku:
+            qb_product = f"{parent_sku}:{full_sku}"
+            st.write(f"Formatted QB product: {qb_product}")
+        # If only full_sku is available
+        elif full_sku:
+            # If it contains a dash, extract parent component
+            if "-" in full_sku:
+                parent = full_sku.split("-")[0]
+                qb_product = f"{parent}:{full_sku}"
+            else:
+                qb_product = f"{full_sku}:{full_sku}"
+            st.write(f"Derived QB product: {qb_product}")
+        # Fallback to the product field
+        else:
+            qb_product = row.get("product", "")
+            st.write(f"Using fallback product: {qb_product}")
+
+        # Get the description - in QB, this is the NoIdentificacion (product_id)
+        description = product_id or row.get("description", "")
+
+        # If description is empty, use the full_description field
+        if not description and "full_description" in row:
+            description = row["full_description"]
+            st.write(f"Using full_description as fallback: {description[:30]}...")
+
+        # Get amount with proper conversion
         amount = 0.0
-        amount_raw = None
+        try:
+            # Try Importe first (standard CFDI field)
+            if "Importe" in row and row["Importe"]:
+                amount = float(row["Importe"])
+            # Fallback to amount field
+            elif "amount" in row and row["amount"]:
+                amount = float(row["amount"])
+        except (ValueError, TypeError) as e:
+            st.error(f"Could not convert amount: {e}")
+            amount = 0.0
 
-        # Try multiple methods to get a valid amount
-        if amount_column and amount_column in row:
-            amount_raw = row[amount_column]
-            st.write(
-                f"Raw amount from {amount_column}: {amount_raw} (type: {type(amount_raw).__name__})"
-            )
-
-        # Convert the amount to float, handling different formats
-        if amount_raw is not None:
-            try:
-                # Handle string values with currency symbols, commas, etc.
-                if isinstance(amount_raw, str):
-                    # Remove currency symbols, commas, etc.
-                    clean_amount = "".join(
-                        c for c in amount_raw if c.isdigit() or c == "." or c == "-"
-                    )
-                    amount = float(clean_amount) if clean_amount else 0.0
-                else:
-                    # Try direct conversion
-                    amount = float(amount_raw)
-
-                st.write(f"Converted amount: {amount}")
-            except (ValueError, TypeError) as e:
-                st.error(f"Could not convert amount '{amount_raw}': {e}")
-                amount = 0.0
-
-        # CRITICAL FIX: Even if amount conversion failed, try the raw values
+        # If amount is still zero, try to search in other columns
         if amount <= 0:
-            # Fallback to 'amount' key if it exists and not in column
-            try:
-                # Find any other column that might have an amount
-                for col in bill_df.columns:
-                    if (
-                        "amount" in col.lower()
-                        or "total" in col.lower()
-                        or "precio" in col.lower()
-                    ):
-                        raw_val = row[col]
-                        if isinstance(raw_val, (int, float)) and raw_val > 0:
-                            amount = float(raw_val)
-                            st.write(
-                                f"Found positive amount in column '{col}': {amount}"
-                            )
+            for col in bill_df.columns:
+                if any(term in col.lower() for term in ["amount", "total", "importe"]):
+                    try:
+                        value = row[col]
+                        if isinstance(value, str):
+                            value = "".join(c for c in value if c.isdigit() or c == ".")
+                        amt = float(value)
+                        if amt > 0:
+                            amount = amt
+                            st.write(f"Found amount {amount} in column {col}")
                             break
-                        elif isinstance(raw_val, str):
-                            clean_val = "".join(
-                                c
-                                for c in raw_val
-                                if c.isdigit() or c == "." or c == "-"
-                            )
-                            try:
-                                val = float(clean_val)
-                                if val > 0:
-                                    amount = val
-                                    st.write(
-                                        f"Parsed positive amount from column '{col}': {amount}"
-                                    )
-                                    break
-                            except (ValueError, TypeError):
-                                pass
-            except Exception as e:
-                st.error(f"Error in fallback amount processing: {e}")
+                    except (ValueError, TypeError):
+                        pass
 
-        # CRITICAL FIX: Force positive amount for debugging if needed
-        if amount <= 0:
-            # Display warning but temporarily use a placeholder for debugging
-            st.warning(f"⚠️ Zero/negative amount ({amount}) for item: {description}")
-            st.info("Creating item with placeholder amount of 1.0 for debugging")
-            # Use a placeholder amount just for testing/debugging
-            amount = 1.0
-
-        # Get quantity with fallbacks for different column names
+        # Get quantity
         quantity = 1.0
-        qty_columns = ["Cantidad", "cantidad", "Quantity", "quantity", "Qty", "qty"]
-        for col in qty_columns:
-            if col in row:
-                try:
-                    qty = float(row[col])
-                    if qty > 0:
-                        quantity = qty
-                        break
-                except (ValueError, TypeError):
-                    pass
+        try:
+            if "Cantidad" in row and row["Cantidad"]:
+                quantity = float(row["Cantidad"])
+            elif "quantity" in row and row["quantity"]:
+                quantity = float(row["quantity"])
+        except (ValueError, TypeError):
+            quantity = 1.0
 
-        # Create the line item
+        # Make sure quantity is positive
+        if quantity <= 0:
+            quantity = 1.0
+
+        # DEBUG OUTPUT
+        st.write(
+            f"Item: QB Product={qb_product}, SKU={full_sku}, ID={product_id}, Amount={amount}, Qty={quantity}"
+        )
+
+        # Create the line item with correctly formatted fields for QB matching
         item = {
-            "product": description,
-            "sku": sku,
+            "product": qb_product,  # Format as parent:sku for QB matching
+            "sku": full_sku,  # The specific SKU
+            "description": description,  # Use product_id as description
             "amount": amount,
             "quantity": quantity,
         }
