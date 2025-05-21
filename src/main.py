@@ -20,7 +20,7 @@ from qb.qb_auth import check_qb_connection
 from qb.qb_api import get_vendors, get_accounts
 from qb.qb_bill import (
     get_all_items,
-    create_bill,
+    build_quickbooks_bill,
     create_sku_mapping,
     find_item_by_sku_or_name,
 )
