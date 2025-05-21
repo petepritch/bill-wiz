@@ -66,36 +66,74 @@ def find_item_by_sku_or_name(name: str, sku: str = None) -> Optional[Dict]:
     Returns:
         Dict or None: The item data if found, None otherwise
     """
-    # Clean the inputs
-    clean_name = name.replace("'", "").replace('"', "")
+    # CRITICAL FIX: Check for empty inputs to prevent infinite loops
+    if not name and not sku:
+        st.warning("Both name and SKU are empty, cannot search for item")
+        return None
 
-    if sku:
-        # Try exact SKU match first
+    # Clean the inputs
+    clean_name = name.replace("'", "").replace('"', "") if name else ""
+
+    # Use cached results to prevent repetitive queries
+    # Create a simple cache key
+    cache_key = f"{clean_name}:{sku if sku else ''}"
+
+    # Check if we've already searched for this item
+    # We'll use st.session_state to store our cache
+    if "item_cache" not in st.session_state:
+        st.session_state.item_cache = {}
+
+    if cache_key in st.session_state.item_cache:
+        st.write(f"Using cached result for '{cache_key}'")
+        return st.session_state.item_cache[cache_key]
+
+    # Check if SKU is provided and not empty
+    if sku and sku.strip():
+        # Try exact SKU match
         query = (
             f"SELECT Id, Name, Type, Description FROM Item WHERE Name LIKE '%{sku}%'"
         )
-        response = run_query(query)
+        try:
+            response = run_query(query)
 
-        if response and response.status_code == 200:
-            data = response.json()
-            if "QueryResponse" in data and "Item" in data["QueryResponse"]:
-                # Check each returned item to find one with the right pattern
-                for item in data["QueryResponse"]["Item"]:
-                    item_name = item.get("Name", "")
-                    # Look for exact SKU after colon or dash
-                    if (
-                        f":{sku}" in item_name
-                        or f"-{sku}" in item_name
-                        or sku in item_name
-                    ):
-                        return item
+            if response and response.status_code == 200:
+                data = response.json()
+                if "QueryResponse" in data and "Item" in data["QueryResponse"]:
+                    # Check each returned item to find one with the right pattern
+                    for item in data["QueryResponse"]["Item"]:
+                        item_name = item.get("Name", "")
+                        # Look for exact SKU after colon or dash
+                        if (
+                            f":{sku}" in item_name
+                            or f"-{sku}" in item_name
+                            or sku in item_name
+                        ):
+                            # Cache this result
+                            st.session_state.item_cache[cache_key] = item
+                            return item
 
-                # If no exact pattern match, return the first match
-                if data["QueryResponse"]["Item"]:
-                    return data["QueryResponse"]["Item"][0]
+                    # If no exact pattern match, return the first match
+                    if data["QueryResponse"]["Item"]:
+                        first_item = data["QueryResponse"]["Item"][0]
+                        # Cache this result
+                        st.session_state.item_cache[cache_key] = first_item
+                        return first_item
+        except Exception as e:
+            st.error(f"Error querying by SKU: {str(e)}")
 
-    # If no match by SKU or no SKU provided, fall back to name search
-    return get_item_by_name(clean_name)
+    # If SKU search failed or no SKU provided, try name search if name isn't empty
+    if clean_name:
+        try:
+            result = get_item_by_name(clean_name)
+            # Cache this result
+            st.session_state.item_cache[cache_key] = result
+            return result
+        except Exception as e:
+            st.error(f"Error in get_item_by_name: {str(e)}")
+
+    # No match found
+    st.session_state.item_cache[cache_key] = None
+    return None
 
 
 @st.cache_data(ttl=3600)
@@ -202,21 +240,6 @@ def build_quickbooks_bill(
 ) -> Tuple[Dict, List[str]]:
     """
     Transforms parsed bill data into a QuickBooks-compatible format.
-
-    Args:
-        bill_data (Dict): The parsed bill data with line items
-        vendor_id (str): The QuickBooks Vendor ID
-        account_id (str, optional): Default account ID for expenses. Can be None if using item-based expenses.
-        txn_date (str, optional): Transaction date in YYYY-MM-DD format. Defaults to today.
-        items_map (Dict, optional): A mapping of product names to QuickBooks Item IDs. If provided,
-                                   the function will use this instead of querying QuickBooks.
-        use_item_based_expense (bool): Whether to use ItemBasedExpenseLineDetail (True) or
-                                      AccountBasedExpenseLineDetail (False)
-        default_expense_account_id (str, optional): Default expense account ID to use if an item can't be found
-                                                   and we're using item-based expenses
-
-    Returns:
-        Tuple: (Dict, List[str]) - A QuickBooks-compatible bill object and a list of missing items
     """
     if txn_date is None:
         txn_date = datetime.now().strftime("%Y-%m-%d")
@@ -229,25 +252,43 @@ def build_quickbooks_bill(
     # Get all items once if we're using item-based expenses and don't have a map
     if use_item_based_expense and not items_map:
         all_items = get_all_items()
-        items_map = create_sku_mapping(all_items)
+        items_map = (
+            create_sku_mapping(all_items) if "create_sku_mapping" in globals() else {}
+        )
+        if not items_map and all_items:
+            # Simple fallback if create_sku_mapping isn't available
+            items_map = {item[0].lower(): item[1] for item in all_items}
 
     # Debug: Check what we have in bill_data
     st.write(f"Processing bill with {len(bill_data.get('line_items', []))} line items")
 
-    for item in bill_data.get("line_items", []):
+    # CRITICAL FIX: Use enumerate to track the index and avoid getting stuck
+    for index, item in enumerate(bill_data.get("line_items", [])):
+        st.write(
+            f"--- Processing item {index + 1}/{len(bill_data.get('line_items', []))} ---"
+        )
+
         try:
             amount = float(item.get("amount", 0))
         except (ValueError, TypeError):
+            st.warning(
+                f"Item {index + 1}: Invalid amount format - {item.get('amount')}"
+            )
             amount = 0.0
 
         if amount <= 0:
-            st.write(
-                f"Skipping item with zero/negative amount: {item.get('product', 'Unknown')}"
+            st.warning(
+                f"Item {index + 1}: Skipping item with zero/negative amount: {item.get('product', 'Unknown')}"
             )
             continue  # Skip zero or negative amounts
 
         product_name = item.get("product", "No description")
         sku = item.get("sku", "")
+
+        # Debug information about the current item
+        st.write(
+            f"Item {index + 1}: Product: '{product_name}', SKU: '{sku}', Amount: {amount}"
+        )
 
         quantity = 1.0
         try:
@@ -264,13 +305,14 @@ def build_quickbooks_bill(
             item_id = None
 
             if items_map:
-                # Debug
-                st.write(f"Trying to match item: {product_name}, SKU: {sku}")
+                st.write(
+                    f"Item {index + 1}: Trying to match item: {product_name}, SKU: {sku}"
+                )
 
                 # Try matching with different approaches
                 match_attempts = [
                     # First try exact matches
-                    product_name.lower(),  # Full product name
+                    product_name.lower() if product_name else None,  # Full product name
                     sku.lower() if sku else None,  # Exact SKU
                 ]
 
@@ -288,31 +330,39 @@ def build_quickbooks_bill(
                         match_attempts.append(clean_sku)
 
                 # Try clean product name
-                clean_name = "".join(c for c in product_name.lower() if c.isalnum())
-                if clean_name != product_name.lower():
-                    match_attempts.append(clean_name)
+                if product_name:
+                    clean_name = "".join(c for c in product_name.lower() if c.isalnum())
+                    if clean_name != product_name.lower():
+                        match_attempts.append(clean_name)
 
                 # Try each matching attempt
                 for attempt in match_attempts:
                     if attempt is not None and attempt in items_map:
                         item_id = items_map[attempt]
-                        st.write(f"✅ Matched using: {attempt}")
+                        st.write(f"Item {index + 1}: ✅ Matched using: {attempt}")
                         break
 
             if not item_id:
                 # Try to find the item by name or SKU in QuickBooks
                 st.write(
-                    f"No match in mapping, trying direct QuickBooks query for {sku}"
+                    f"Item {index + 1}: No match in mapping, trying direct QuickBooks query for {sku}"
                 )
-                qb_item = find_item_by_sku_or_name(product_name, sku)
-                if qb_item:
-                    item_id = qb_item.get("Id")
-                    # Add to our map for future use
-                    if items_map is not None and sku:
-                        items_map[sku.lower()] = item_id
-                    st.write(
-                        f"✅ Found via direct query: {qb_item.get('Name', 'Unknown')}"
+
+                # CRITICAL FIX: Don't query with empty strings
+                if not product_name and not sku:
+                    st.warning(
+                        f"Item {index + 1}: Both product name and SKU are empty, skipping direct query"
                     )
+                else:
+                    qb_item = find_item_by_sku_or_name(product_name, sku)
+                    if qb_item:
+                        item_id = qb_item.get("Id")
+                        # Add to our map for future use
+                        if items_map is not None and sku:
+                            items_map[sku.lower()] = item_id
+                        st.write(
+                            f"Item {index + 1}: ✅ Found via direct query: {qb_item.get('Name', 'Unknown')}"
+                        )
 
             if item_id:
                 line = {
@@ -325,11 +375,14 @@ def build_quickbooks_bill(
                         "UnitPrice": amount / quantity if quantity else amount,
                     },
                 }
-                st.write(f"Added item with ID: {item_id}")
+                st.write(f"Item {index + 1}: Added item with ID: {item_id}")
+                qb_line_items.append(line)  # CRITICAL FIX: Add the line item here
             else:
                 # Fall back to account-based expense if we can't find the item
                 missing_items.append(product_name)
-                st.write(f"❌ Could not find item: {product_name}, SKU: {sku}")
+                st.write(
+                    f"Item {index + 1}: ❌ Could not find item: {product_name}, SKU: {sku}"
+                )
 
                 if default_expense_account_id:
                     line = {
@@ -341,11 +394,14 @@ def build_quickbooks_bill(
                         },
                     }
                     st.write(
-                        f"Using default expense account: {default_expense_account_id}"
+                        f"Item {index + 1}: Using default expense account: {default_expense_account_id}"
                     )
+                    qb_line_items.append(line)  # CRITICAL FIX: Add the line item here
                 else:
                     # Skip this line if we don't have a default account
-                    st.write("No default expense account provided, skipping item")
+                    st.warning(
+                        f"Item {index + 1}: No default expense account provided, skipping item"
+                    )
                     continue
         else:
             # Use account-based expense
@@ -355,9 +411,10 @@ def build_quickbooks_bill(
                 "Description": product_name,
                 "AccountBasedExpenseLineDetail": {"AccountRef": {"value": account_id}},
             }
+            qb_line_items.append(line)  # CRITICAL FIX: Add the line item here
+            st.write(f"Item {index + 1}: Added account-based expense")
 
-        qb_line_items.append(line)
-
+    # Create the bill structure
     qb_bill = {
         "VendorRef": {"value": vendor_id},
         "TxnDate": txn_date,
@@ -368,7 +425,9 @@ def build_quickbooks_bill(
     if invoice_number:
         qb_bill["DocNumber"] = invoice_number
 
-    st.write(f"Created bill with {len(qb_line_items)} line items")
+    st.write(
+        f"Created bill with {len(qb_line_items)} line items out of {len(bill_data.get('line_items', []))} total items"
+    )
     return qb_bill, missing_items
 
 
