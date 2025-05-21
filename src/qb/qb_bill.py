@@ -242,6 +242,13 @@ def create_bill(
             default_expense_account_id=default_expense_account_id,
         )
 
+        print(f"DEBUG: bill_data contains {len(bill_data['line_items'])} items")
+        print(f"DEBUG: qb_bill contains {len(qb_bill['Line'])} line items")
+        for i, item in enumerate(bill_data["line_items"]):
+            print(
+                f"DEBUG: Item {i}: {item.get('product', 'No name')} - Amount: {item.get('amount', 'No amount')}"
+            )
+
         # Check if we have line items
         if not qb_bill["Line"]:
             return False, "No valid line items found in bill data", missing_items
