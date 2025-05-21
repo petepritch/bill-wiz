@@ -379,7 +379,7 @@ def create_bill(
     txn_date: str = None,
     use_item_based_expense: bool = True,
     default_expense_account_id: str = None,
-) -> Tuple[bool, Union[Dict, str], List[str]]:
+) -> Dict:
     """
     Creates a bill in QuickBooks.
 
@@ -398,17 +398,54 @@ def create_bill(
             - missing_items (list): List of items that couldn't be found in QuickBooks
     """
     try:
-        # Add debug info
-        st.write("🔍 Analyzing bill data...")
+        # DETAILED DEBUGGING: Show the structure of the bill data
+        st.write("## Bill Data Inspection")
+        st.write(f"Invoice Number: {bill_data.get('invoice_number', 'None')}")
+        st.write(f"Number of line items: {len(bill_data.get('line_items', []))}")
 
-        # Verify bill_data structure
-        if "line_items" not in bill_data or not bill_data["line_items"]:
-            st.error("No line items found in bill data!")
-            st.write(f"Bill data structure: {bill_data}")
-            return False, "No line items found in bill data", []
+        # Show the first few line items for inspection
+        if bill_data.get("line_items"):
+            st.write("Sample of line items:")
+            for i, item in enumerate(bill_data["line_items"][:3]):  # Show first 3
+                st.write(f"Item {i+1}:")
+                for key, value in item.items():
+                    st.write(f"- {key}: {value} (type: {type(value).__name__})")
+        else:
+            st.error("⚠️ No line items found in bill data!")
 
-        # Show some bill data for debugging
-        st.write(f"Bill has {len(bill_data['line_items'])} line items")
+        # CRITICAL FIX: Ensure we have some line items with positive amounts
+        valid_items = []
+        for item in bill_data.get("line_items", []):
+            try:
+                amount = float(item.get("amount", 0))
+                if amount > 0:
+                    valid_items.append(item)
+                    st.write(
+                        f"✅ Valid item: {item.get('product', 'Unnamed')} - Amount: ${amount}"
+                    )
+                else:
+                    st.warning(
+                        f"⚠️ Invalid amount ({amount}) for {item.get('product', 'Unnamed')}"
+                    )
+            except (ValueError, TypeError) as e:
+                st.error(
+                    f"Error converting amount for {item.get('product', 'Unnamed')}: {str(e)}"
+                )
+
+        if not valid_items:
+            st.error("No valid line items with positive amounts!")
+            # For debugging purposes, create a placeholder item
+            if st.checkbox("Add placeholder for debugging?"):
+                placeholder = {
+                    "product": "DEBUG PLACEHOLDER",
+                    "amount": 1.0,
+                    "quantity": 1.0,
+                    "sku": "DEBUG",
+                }
+                valid_items.append(placeholder)
+                st.success("Added placeholder item for debugging")
+                # Update the bill_data
+                bill_data["line_items"] = valid_items
 
         # Build the QuickBooks bill
         qb_bill, missing_items = build_quickbooks_bill(
@@ -422,22 +459,21 @@ def create_bill(
 
         # Check if we have line items
         if not qb_bill["Line"]:
-            st.error("No valid line items were created!")
+            st.error("No valid line items found in bill data")
             return False, "No valid line items found in bill data", missing_items
 
+        # Make the API request
         st.write(
-            f"📤 Sending bill to QuickBooks with {len(qb_bill['Line'])} line items..."
+            f"Making API request to create bill with {len(qb_bill['Line'])} line items..."
         )
         response = make_api_request("bill", method="POST", data=qb_bill)
 
         if response and response.status_code in (200, 201):
-            st.write("✅ Bill created successfully!")
             return True, response.json(), missing_items
         else:
             error_msg = "Failed to create bill in QuickBooks"
             if response:
                 error_msg += f": {response.text}"
-            st.error(error_msg)
             return False, error_msg, missing_items
 
     except Exception as e:
