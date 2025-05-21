@@ -11,6 +11,115 @@ import streamlit as st
 from .qb_auth import make_api_request, run_query
 
 
+def create_bill(
+    bill_data: Dict,
+    vendor_id: str,
+    account_id: str = None,
+    txn_date: str = None,
+    use_item_based_expense: bool = True,
+    default_expense_account_id: str = None,
+) -> Dict:
+    """
+    Creates a bill in QuickBooks.
+
+    Args:
+        bill_data (Dict): The parsed bill data
+        vendor_id (str): The QuickBooks Vendor ID
+        account_id (str, optional): Default account ID for expenses
+        txn_date (str, optional): Transaction date in YYYY-MM-DD format
+        use_item_based_expense (bool): Whether to use item-based expenses
+        default_expense_account_id (str, optional): Default expense account ID
+
+    Returns:
+        Tuple: (success, response_or_error, missing_items)
+            - success (bool): Whether the bill was created successfully
+            - response_or_error: The API response on success, error message on failure
+            - missing_items (list): List of items that couldn't be found in QuickBooks
+    """
+    try:
+        # DETAILED DEBUGGING: Show the structure of the bill data
+        st.write("## Bill Data Inspection")
+        st.write(f"Invoice Number: {bill_data.get('invoice_number', 'None')}")
+        st.write(f"Number of line items: {len(bill_data.get('line_items', []))}")
+
+        # Show the first few line items for inspection
+        if bill_data.get("line_items"):
+            st.write("Sample of line items:")
+            for i, item in enumerate(bill_data["line_items"][:3]):  # Show first 3
+                st.write(f"Item {i+1}:")
+                for key, value in item.items():
+                    st.write(f"- {key}: {value} (type: {type(value).__name__})")
+        else:
+            st.error("⚠️ No line items found in bill data!")
+
+        # CRITICAL FIX: Ensure we have some line items with positive amounts
+        valid_items = []
+        for item in bill_data.get("line_items", []):
+            try:
+                amount = float(item.get("amount", 0))
+                if amount > 0:
+                    valid_items.append(item)
+                    st.write(
+                        f"✅ Valid item: {item.get('product', 'Unnamed')} - Amount: ${amount}"
+                    )
+                else:
+                    st.warning(
+                        f"⚠️ Invalid amount ({amount}) for {item.get('product', 'Unnamed')}"
+                    )
+            except (ValueError, TypeError) as e:
+                st.error(
+                    f"Error converting amount for {item.get('product', 'Unnamed')}: {str(e)}"
+                )
+
+        if not valid_items:
+            st.error("No valid line items with positive amounts!")
+            # For debugging purposes, create a placeholder item
+            if st.checkbox("Add placeholder for debugging?"):
+                placeholder = {
+                    "product": "DEBUG PLACEHOLDER",
+                    "amount": 1.0,
+                    "quantity": 1.0,
+                    "sku": "DEBUG",
+                }
+                valid_items.append(placeholder)
+                st.success("Added placeholder item for debugging")
+                # Update the bill_data
+                bill_data["line_items"] = valid_items
+
+        # Build the QuickBooks bill
+        qb_bill, missing_items = build_quickbooks_bill(
+            bill_data,
+            vendor_id,
+            account_id,
+            txn_date,
+            use_item_based_expense=use_item_based_expense,
+            default_expense_account_id=default_expense_account_id,
+        )
+
+        # Check if we have line items
+        if not qb_bill["Line"]:
+            st.error("No valid line items found in bill data")
+            return False, "No valid line items found in bill data", missing_items
+
+        # Make the API request
+        st.write(
+            f"Making API request to create bill with {len(qb_bill['Line'])} line items..."
+        )
+        response = make_api_request("bill", method="POST", data=qb_bill)
+
+        if response and response.status_code in (200, 201):
+            return True, response.json(), missing_items
+        else:
+            error_msg = "Failed to create bill in QuickBooks"
+            if response:
+                error_msg += f": {response.text}"
+            return False, error_msg, missing_items
+
+    except Exception as e:
+        st.exception(f"Error creating bill: {str(e)}")
+        return False, f"Error creating bill: {str(e)}", []
+
+
 def get_item_by_name(item_name: str) -> Optional[Dict]:
     """
     Find a QuickBooks item by name.
