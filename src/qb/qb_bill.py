@@ -18,7 +18,7 @@ def create_bill(
     txn_date: str = None,
     use_item_based_expense: bool = True,
     default_expense_account_id: str = None,
-) -> Dict:
+) -> Tuple[bool, Dict, List[str]]:
     """
     Creates a bill in QuickBooks.
 
@@ -51,6 +51,7 @@ def create_bill(
                     st.write(f"- {key}: {value} (type: {type(value).__name__})")
         else:
             st.error("⚠️ No line items found in bill data!")
+            return False, "No line items found in bill data", []
 
         # CRITICAL FIX: Ensure we have some line items with positive amounts
         valid_items = []
@@ -85,16 +86,22 @@ def create_bill(
                 st.success("Added placeholder item for debugging")
                 # Update the bill_data
                 bill_data["line_items"] = valid_items
+            else:
+                return False, "No valid line items with positive amounts", []
 
         # Build the QuickBooks bill
-        qb_bill, missing_items = build_quickbooks_bill(
-            bill_data,
-            vendor_id,
-            account_id,
-            txn_date,
-            use_item_based_expense=use_item_based_expense,
-            default_expense_account_id=default_expense_account_id,
-        )
+        try:
+            qb_bill, missing_items = build_quickbooks_bill(
+                bill_data,
+                vendor_id,
+                account_id,
+                txn_date,
+                use_item_based_expense=use_item_based_expense,
+                default_expense_account_id=default_expense_account_id,
+            )
+        except Exception as e:
+            st.exception(f"Error in build_quickbooks_bill: {str(e)}")
+            return False, f"Error in build_quickbooks_bill: {str(e)}", []
 
         # Check if we have line items
         if not qb_bill["Line"]:
@@ -366,6 +373,7 @@ def build_quickbooks_bill(
 ) -> Tuple[Dict, List[str]]:
     """
     Transforms parsed bill data into a QuickBooks-compatible format.
+    Returns a tuple containing the QB bill structure and a list of items not found.
     """
     if txn_date is None:
         txn_date = datetime.now().strftime("%Y-%m-%d")
@@ -375,15 +383,42 @@ def build_quickbooks_bill(
     qb_line_items = []
     missing_items = []
 
+    # CRITICAL FIX: Ensure we have a valid bill_data with line_items
+    if bill_data is None or not isinstance(bill_data, dict):
+        st.error("Invalid bill_data: None or not a dictionary")
+        # Return empty bill structure and missing items to avoid unpacking error
+        return {"VendorRef": {"value": vendor_id}, "TxnDate": txn_date, "Line": []}, [
+            "Invalid bill data"
+        ]
+
+    if "line_items" not in bill_data or not bill_data["line_items"]:
+        st.error("No line items found in bill_data")
+        # Return empty bill structure and missing items to avoid unpacking error
+        return {"VendorRef": {"value": vendor_id}, "TxnDate": txn_date, "Line": []}, [
+            "No line items found"
+        ]
+
     # Get all items once if we're using item-based expenses and don't have a map
     if use_item_based_expense and not items_map:
-        all_items = get_all_items()
-        items_map = (
-            create_sku_mapping(all_items) if "create_sku_mapping" in globals() else {}
-        )
-        if not items_map and all_items:
-            # Simple fallback if create_sku_mapping isn't available
-            items_map = {item[0].lower(): item[1] for item in all_items}
+        try:
+            all_items = get_all_items()
+            if not all_items:
+                st.warning("No items found in QuickBooks!")
+                # Still continue with empty items map
+                items_map = {}
+            else:
+                items_map = (
+                    create_sku_mapping(all_items)
+                    if "create_sku_mapping" in globals()
+                    else {}
+                )
+                if not items_map and all_items:
+                    # Simple fallback if create_sku_mapping isn't available
+                    items_map = {item[0].lower(): item[1] for item in all_items}
+        except Exception as e:
+            st.error(f"Error getting QuickBooks items: {str(e)}")
+            # Continue with empty items map
+            items_map = {}
 
     # Debug: Check what we have in bill_data
     st.write(f"Processing bill with {len(bill_data.get('line_items', []))} line items")
@@ -511,3 +546,20 @@ def build_quickbooks_bill(
                         st.write(
                             f"Item {index + 1}: ✅ Found via description query: {qb_item.get('Name', 'Unknown')}"
                         )
+
+    qb_bill = {
+        "VendorRef": {"value": vendor_id},
+        "TxnDate": txn_date,
+        "Line": qb_line_items,
+    }
+
+    # Add invoice number if available
+    if invoice_number:
+        qb_bill["DocNumber"] = invoice_number
+
+    st.write(
+        f"Created bill with {len(qb_line_items)} line items out of {len(bill_data.get('line_items', []))} total items"
+    )
+
+    # CRITICAL: Always return a tuple with the bill and missing items
+    return qb_bill, missing_items
