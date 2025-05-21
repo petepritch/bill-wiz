@@ -152,7 +152,7 @@ def get_valid_access_token():
 
 
 def initial_auth_flow():
-    """Handle the initial authorization flow"""
+    """Handle the initial authorization flow - Direct Code Extraction Version"""
     # Define the scopes needed for your application
     scopes = [Scopes.ACCOUNTING]
 
@@ -162,55 +162,104 @@ def initial_auth_flow():
     # Display instructions and URL in Streamlit
     st.title("QuickBooks API Authorization")
     st.write("You need to authorize this application to access your QuickBooks data.")
-    st.write("Click the link below and follow these steps:")
-    st.write("1. Log in with your QuickBooks company credentials")
-    st.write("2. Authorize the application")
-    st.write(
-        "3. When redirected to the OAuth Playground, copy the ENTIRE URL from your browser's address bar"
-    )
-    st.write("4. Paste it below and click 'Complete Authorization'")
-
-    st.markdown(f"[Authorize with QuickBooks]({auth_url})")
+    st.markdown(f"### Step 1: [Click here to authorize with QuickBooks]({auth_url})")
 
     st.write("---")
-    st.write("After authorization, paste the FULL URL you were redirected to:")
 
-    redirect_url = st.text_input("Redirect URL:")
+    st.markdown("### Step 2: After authorizing, you'll see a URL with 'code=' in it")
+    st.write(
+        "Copy ONLY the value of the 'code' parameter (the text after 'code=' and before any '&')"
+    )
 
-    if st.button("Complete Authorization") and redirect_url:
+    auth_code = st.text_input("Paste ONLY the authorization code here:")
+
+    st.markdown("### Step 3: Copy the Company ID (realmId)")
+    st.write("In the same URL, find 'realmId=' and copy the number that follows it")
+
+    realm_id = st.text_input("Paste the realmId here:")
+
+    if st.button("Complete Authorization") and auth_code and realm_id:
         try:
-            # Print debug info
-            st.write(f"URL length: {len(redirect_url)}")
-            with st.expander("Debug URL Info"):
-                start = (
-                    redirect_url[:60] + "..."
-                    if len(redirect_url) > 60
-                    else redirect_url
-                )
-                end = "..." + redirect_url[-60:] if len(redirect_url) > 60 else ""
-                st.write(f"URL starts with: {start}")
-                st.write(f"URL ends with: {end}")
+            st.write(
+                f"Using authorization code: {auth_code[:5]}... (length: {len(auth_code)})"
+            )
+            st.write(f"Using realmId: {realm_id}")
 
-            # Check for 'code' parameter
-            if "code=" not in redirect_url:
-                st.error(
-                    "The URL does not contain an authorization code. Make sure you're copying the entire URL."
-                )
-                return
-
-            # Extract the authorization code from the redirect URL
-            auth_client.get_bearer_token(redirect_url)
-
-            # Save the tokens
-            save_tokens_to_env(
-                auth_client.access_token,
-                auth_client.refresh_token,
-                str(int(time.time()) + auth_client.x_refresh_token_expires_in),
-                auth_client.realm_id,
+            # Create a new auth client with exact credentials to avoid any issues
+            temp_auth_client = AuthClient(
+                client_id=CLIENT_ID,
+                client_secret=CLIENT_SECRET,
+                redirect_uri=REDIRECT_URI,
+                environment=ENVIRONMENT,
             )
 
-            st.success("Authorization successful! You can now use the QuickBooks API.")
-            st.experimental_rerun()
+            # Set the realm ID directly
+            temp_auth_client.realm_id = realm_id
+
+            # Get the bearer token with just the code
+            try:
+                temp_auth_client.get_bearer_token(code=auth_code)
+
+                # Save the tokens
+                save_tokens_to_env(
+                    temp_auth_client.access_token,
+                    temp_auth_client.refresh_token,
+                    str(int(time.time()) + temp_auth_client.x_refresh_token_expires_in),
+                    temp_auth_client.realm_id,
+                )
+
+                st.success(
+                    "Authorization successful! You can now use the QuickBooks API."
+                )
+                st.experimental_rerun()
+            except Exception as inner_e:
+                st.error(f"Error getting bearer token: {str(inner_e)}")
+
+                # Try direct token request as last resort
+                try:
+                    st.write("Attempting direct token request...")
+                    import requests
+                    import base64
+
+                    token_endpoint = (
+                        "https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer"
+                    )
+                    auth_header = base64.b64encode(
+                        f"{CLIENT_ID}:{CLIENT_SECRET}".encode()
+                    ).decode()
+
+                    headers = {
+                        "Authorization": f"Basic {auth_header}",
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    }
+
+                    data = {
+                        "grant_type": "authorization_code",
+                        "code": auth_code,
+                        "redirect_uri": REDIRECT_URI,
+                    }
+
+                    response = requests.post(token_endpoint, headers=headers, data=data)
+                    st.write(f"Response status: {response.status_code}")
+
+                    if response.status_code == 200:
+                        token_data = response.json()
+                        save_tokens_to_env(
+                            token_data["access_token"],
+                            token_data["refresh_token"],
+                            str(
+                                int(time.time())
+                                + token_data["x_refresh_token_expires_in"]
+                            ),
+                            realm_id,
+                        )
+                        st.success("Direct token request successful!")
+                        st.experimental_rerun()
+                    else:
+                        st.error(f"Direct token request failed: {response.text}")
+                except Exception as direct_e:
+                    st.error(f"Direct token request error: {str(direct_e)}")
+
         except Exception as e:
             st.error(f"Authorization failed: {str(e)}")
             st.write(
