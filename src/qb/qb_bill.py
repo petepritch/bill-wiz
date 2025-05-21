@@ -6,7 +6,7 @@ with support for both inventory and expense items.
 """
 
 from datetime import datetime
-from typing import List, Dict, Optional, Union
+from typing import List, Dict, Optional, Union, Tuple
 import streamlit as st
 from .qb_auth import make_api_request, run_query
 
@@ -55,6 +55,49 @@ def get_item_by_name(item_name: str) -> Optional[Dict]:
     return None
 
 
+def find_item_by_sku_or_name(name: str, sku: str = None) -> Optional[Dict]:
+    """
+    Find a QuickBooks item by SKU or name, handling parent-child SKU relationships.
+
+    Args:
+        name (str): The name of the item to search for
+        sku (str, optional): The SKU to search for
+
+    Returns:
+        Dict or None: The item data if found, None otherwise
+    """
+    # Clean the inputs
+    clean_name = name.replace("'", "").replace('"', "")
+
+    if sku:
+        # Try exact SKU match first
+        query = (
+            f"SELECT Id, Name, Type, Description FROM Item WHERE Name LIKE '%{sku}%'"
+        )
+        response = run_query(query)
+
+        if response and response.status_code == 200:
+            data = response.json()
+            if "QueryResponse" in data and "Item" in data["QueryResponse"]:
+                # Check each returned item to find one with the right pattern
+                for item in data["QueryResponse"]["Item"]:
+                    item_name = item.get("Name", "")
+                    # Look for exact SKU after colon or dash
+                    if (
+                        f":{sku}" in item_name
+                        or f"-{sku}" in item_name
+                        or sku in item_name
+                    ):
+                        return item
+
+                # If no exact pattern match, return the first match
+                if data["QueryResponse"]["Item"]:
+                    return data["QueryResponse"]["Item"][0]
+
+    # If no match by SKU or no SKU provided, fall back to name search
+    return get_item_by_name(clean_name)
+
+
 @st.cache_data(ttl=3600)
 def get_all_items():
     """
@@ -77,6 +120,77 @@ def get_all_items():
     return []
 
 
+@st.cache_data(ttl=3600)
+def get_all_items_with_details():
+    """
+    Get all items from QuickBooks with detailed information including SKUs.
+
+    Returns:
+        List: A list of tuples (name, id, sku) for all items
+    """
+    query = "SELECT Id, Name, SKU, Type FROM Item WHERE Active = true MAXRESULTS 1000"
+    response = run_query(query)
+
+    if response and response.status_code == 200:
+        data = response.json()
+        if "QueryResponse" in data and "Item" in data["QueryResponse"]:
+            items = data["QueryResponse"]["Item"]
+            return [
+                (
+                    item.get("Name", "Unnamed Item"),
+                    item.get("Id", ""),
+                    item.get("SKU", ""),
+                )
+                for item in items
+            ]
+
+    return []
+
+
+def create_sku_mapping(items_list: List[Tuple[str, str]]) -> Dict[str, str]:
+    """
+    Create a comprehensive mapping of SKUs to item IDs.
+    Handles parent-child SKU formats.
+
+    Args:
+        items_list: List of tuples (name, id) for QuickBooks items
+
+    Returns:
+        Dict: Mapping of various SKU formats to item IDs
+    """
+    mapping = {}
+
+    for name, item_id in items_list:
+        # Store the full name as a key
+        mapping[name.lower()] = item_id
+
+        # Handle parent-child SKU format (parent:child)
+        if ":" in name:
+            parent_sku, child_sku = name.split(":", 1)
+
+            # Store each component
+            mapping[parent_sku.lower()] = item_id
+            mapping[child_sku.lower()] = item_id
+
+            # Also store combinations
+            if "-" in child_sku:
+                child_parts = child_sku.split("-")
+                # Store the last part (often a unique identifier)
+                mapping[child_parts[-1].lower()] = item_id
+
+                # Store full child part without parent prefix
+                child_sku_clean = "".join(c for c in child_sku.lower() if c.isalnum())
+                if child_sku_clean != child_sku.lower():
+                    mapping[child_sku_clean] = item_id
+
+        # For non-parent-child names, store without special characters too
+        clean_name = "".join(c for c in name.lower() if c.isalnum())
+        if clean_name != name.lower():
+            mapping[clean_name] = item_id
+
+    return mapping
+
+
 def build_quickbooks_bill(
     bill_data: Dict,
     vendor_id: str,
@@ -85,7 +199,7 @@ def build_quickbooks_bill(
     items_map: Dict = None,
     use_item_based_expense: bool = True,
     default_expense_account_id: str = None,
-) -> Dict:
+) -> Tuple[Dict, List[str]]:
     """
     Transforms parsed bill data into a QuickBooks-compatible format.
 
@@ -102,7 +216,7 @@ def build_quickbooks_bill(
                                                    and we're using item-based expenses
 
     Returns:
-        Dict: A QuickBooks-compatible bill object
+        Tuple: (Dict, List[str]) - A QuickBooks-compatible bill object and a list of missing items
     """
     if txn_date is None:
         txn_date = datetime.now().strftime("%Y-%m-%d")
@@ -114,48 +228,91 @@ def build_quickbooks_bill(
 
     # Get all items once if we're using item-based expenses and don't have a map
     if use_item_based_expense and not items_map:
-        items_map = {}
         all_items = get_all_items()
-        for name, id in all_items:
-            items_map[name.lower()] = id
+        items_map = create_sku_mapping(all_items)
 
-            # Add some common variations to improve matching
-            clean_name = "".join(c for c in name.lower() if c.isalnum())
-            if clean_name != name.lower():
-                items_map[clean_name] = id
+    # Debug: Check what we have in bill_data
+    st.write(f"Processing bill with {len(bill_data.get('line_items', []))} line items")
 
-    for item in bill_data["line_items"]:
+    for item in bill_data.get("line_items", []):
         try:
-            amount = float(item["amount"])
+            amount = float(item.get("amount", 0))
         except (ValueError, TypeError):
             amount = 0.0
 
         if amount <= 0:
+            st.write(
+                f"Skipping item with zero/negative amount: {item.get('product', 'Unknown')}"
+            )
             continue  # Skip zero or negative amounts
 
         product_name = item.get("product", "No description")
+        sku = item.get("sku", "")
+
+        quantity = 1.0
+        try:
+            quantity = float(item.get("quantity", 1))
+        except (ValueError, TypeError):
+            quantity = 1.0
+
+        # Ensure quantity is at least 1
+        if quantity <= 0:
+            quantity = 1.0
 
         if use_item_based_expense:
             # Try to find the item in QuickBooks
             item_id = None
 
             if items_map:
-                # First try exact match
-                item_id = items_map.get(product_name.lower())
+                # Debug
+                st.write(f"Trying to match item: {product_name}, SKU: {sku}")
 
-                if not item_id:
-                    # Try with clean name (alphanumeric only)
-                    clean_name = "".join(c for c in product_name.lower() if c.isalnum())
-                    item_id = items_map.get(clean_name)
+                # Try matching with different approaches
+                match_attempts = [
+                    # First try exact matches
+                    product_name.lower(),  # Full product name
+                    sku.lower() if sku else None,  # Exact SKU
+                ]
+
+                # Add variant matches
+                if sku:
+                    # Handle SKU parts
+                    if "-" in sku:
+                        match_attempts.append(
+                            sku.split("-")[-1].lower()
+                        )  # Last part of SKU
+
+                    # Handle SKU without special chars
+                    clean_sku = "".join(c for c in sku.lower() if c.isalnum())
+                    if clean_sku != sku.lower():
+                        match_attempts.append(clean_sku)
+
+                # Try clean product name
+                clean_name = "".join(c for c in product_name.lower() if c.isalnum())
+                if clean_name != product_name.lower():
+                    match_attempts.append(clean_name)
+
+                # Try each matching attempt
+                for attempt in match_attempts:
+                    if attempt is not None and attempt in items_map:
+                        item_id = items_map[attempt]
+                        st.write(f"✅ Matched using: {attempt}")
+                        break
 
             if not item_id:
-                # Try to find the item by name in QuickBooks
-                qb_item = get_item_by_name(product_name)
+                # Try to find the item by name or SKU in QuickBooks
+                st.write(
+                    f"No match in mapping, trying direct QuickBooks query for {sku}"
+                )
+                qb_item = find_item_by_sku_or_name(product_name, sku)
                 if qb_item:
                     item_id = qb_item.get("Id")
                     # Add to our map for future use
-                    if items_map is not None:
-                        items_map[product_name.lower()] = item_id
+                    if items_map is not None and sku:
+                        items_map[sku.lower()] = item_id
+                    st.write(
+                        f"✅ Found via direct query: {qb_item.get('Name', 'Unknown')}"
+                    )
 
             if item_id:
                 line = {
@@ -164,13 +321,16 @@ def build_quickbooks_bill(
                     "Description": product_name,
                     "ItemBasedExpenseLineDetail": {
                         "ItemRef": {"value": item_id},
-                        "Qty": item.get("quantity", 1),
-                        "UnitPrice": amount / (item.get("quantity", 1) or 1),
+                        "Qty": quantity,
+                        "UnitPrice": amount / quantity if quantity else amount,
                     },
                 }
+                st.write(f"Added item with ID: {item_id}")
             else:
                 # Fall back to account-based expense if we can't find the item
                 missing_items.append(product_name)
+                st.write(f"❌ Could not find item: {product_name}, SKU: {sku}")
+
                 if default_expense_account_id:
                     line = {
                         "DetailType": "AccountBasedExpenseLineDetail",
@@ -180,8 +340,12 @@ def build_quickbooks_bill(
                             "AccountRef": {"value": default_expense_account_id}
                         },
                     }
+                    st.write(
+                        f"Using default expense account: {default_expense_account_id}"
+                    )
                 else:
                     # Skip this line if we don't have a default account
+                    st.write("No default expense account provided, skipping item")
                     continue
         else:
             # Use account-based expense
@@ -204,6 +368,7 @@ def build_quickbooks_bill(
     if invoice_number:
         qb_bill["DocNumber"] = invoice_number
 
+    st.write(f"Created bill with {len(qb_line_items)} line items")
     return qb_bill, missing_items
 
 
@@ -214,7 +379,7 @@ def create_bill(
     txn_date: str = None,
     use_item_based_expense: bool = True,
     default_expense_account_id: str = None,
-) -> Dict:
+) -> Tuple[bool, Union[Dict, str], List[str]]:
     """
     Creates a bill in QuickBooks.
 
@@ -233,6 +398,19 @@ def create_bill(
             - missing_items (list): List of items that couldn't be found in QuickBooks
     """
     try:
+        # Add debug info
+        st.write("🔍 Analyzing bill data...")
+
+        # Verify bill_data structure
+        if "line_items" not in bill_data or not bill_data["line_items"]:
+            st.error("No line items found in bill data!")
+            st.write(f"Bill data structure: {bill_data}")
+            return False, "No line items found in bill data", []
+
+        # Show some bill data for debugging
+        st.write(f"Bill has {len(bill_data['line_items'])} line items")
+
+        # Build the QuickBooks bill
         qb_bill, missing_items = build_quickbooks_bill(
             bill_data,
             vendor_id,
@@ -242,26 +420,26 @@ def create_bill(
             default_expense_account_id=default_expense_account_id,
         )
 
-        print(f"DEBUG: bill_data contains {len(bill_data['line_items'])} items")
-        print(f"DEBUG: qb_bill contains {len(qb_bill['Line'])} line items")
-        for i, item in enumerate(bill_data["line_items"]):
-            print(
-                f"DEBUG: Item {i}: {item.get('product', 'No name')} - Amount: {item.get('amount', 'No amount')}"
-            )
-
         # Check if we have line items
         if not qb_bill["Line"]:
+            st.error("No valid line items were created!")
             return False, "No valid line items found in bill data", missing_items
 
+        st.write(
+            f"📤 Sending bill to QuickBooks with {len(qb_bill['Line'])} line items..."
+        )
         response = make_api_request("bill", method="POST", data=qb_bill)
 
         if response and response.status_code in (200, 201):
+            st.write("✅ Bill created successfully!")
             return True, response.json(), missing_items
         else:
             error_msg = "Failed to create bill in QuickBooks"
             if response:
                 error_msg += f": {response.text}"
+            st.error(error_msg)
             return False, error_msg, missing_items
 
     except Exception as e:
+        st.exception(f"Error creating bill: {str(e)}")
         return False, f"Error creating bill: {str(e)}", []
